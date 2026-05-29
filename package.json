@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "workspaces": [
+    "kinetic-ai-studio",
+    "stitch_ai_shorts_automator"
+  ]
+}

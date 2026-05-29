@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#131315",
+                        "surface-container": "#201f22",
+                        "on-surface-variant": "#cbc3d7",
+                        "surface-variant": "#353437",
+                        "inverse-on-surface": "#313032",
+                        "background": "#131315",
+                        "secondary-fixed": "#ffdad4",
+                        "surface": "#131315",
+                        "on-primary-fixed-variant": "#5516be",
+                        "on-tertiary": "#00363e",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e5e1e4",
+                        "on-secondary-fixed-variant": "#930100",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e5e1e4",
+                        "surface-container-low": "#1c1b1d",
+                        "outline-variant": "#494454",
+                        "tertiary-container": "#009fb4",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2c",
+                        "inverse-primary": "#6d3bd7",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "on-primary": "#3c0091",
+                        "primary-fixed-dim": "#d0bcff",
+                        "primary": "#d0bcff",
+                        "outline": "#958ea0",
+                        "error": "#ffb4ab",
+                        "tertiary": "#2fd9f4",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary-fixed": "#001f25",
+                        "on-primary-container": "#340080",
+                        "surface-container-lowest": "#0e0e10",
+                        "on-secondary": "#690100",
+                        "tertiary-fixed": "#a2eeff",
+                        "surface-container-highest": "#353437",
+                        "on-secondary-container": "#5c0000",
+                        "on-primary-fixed": "#23005c",
+                        "tertiary-fixed-dim": "#2fd9f4",
+                        "on-tertiary-container": "#002f36",
+                        "on-secondary-fixed": "#410000",
+                        "surface-bright": "#39393b",
+                        "secondary": "#ffb4a8",
+                        "secondary-container": "#ff5540",
+                        "primary-fixed": "#e9ddff",
+                        "primary-container": "#a078ff",
+                        "on-surface": "#e5e1e4",
+                        "secondary-fixed-dim": "#ffb4a8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "xl": "32px",
+                        "sm": "12px",
+                        "gutter-mobile": "16px",
+                        "xs": "8px",
+                        "base": "4px",
+                        "margin-mobile": "20px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "headline-md": ["Sora"],
+                        "label-md": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "body-lg": ["Sora"],
+                        "label-sm": ["Sora"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md text-body-md min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Deep Space Atmospheric Background Layers -->
+<div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/20 blur-[120px] pointer-events-none z-0"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-tertiary/20 blur-[100px] pointer-events-none z-0"></div>
+<!-- Navigation Shell: TopAppBar (from JSON) -->
+<header class="fixed top-0 w-full flex justify-between items-center px-margin-mobile h-16 z-50 bg-surface/80 backdrop-blur-xl border-b border-white/15 shadow-[0_0_20px_rgba(208,188,255,0.1)]">
+<div class="flex items-center gap-sm cursor-pointer active:scale-95 duration-200">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/20">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A futuristic portrait of an AI creator. They are illuminated by neon cyan and deep purple rim lighting, reflecting the high-contrast modern aesthetic of the AI Studio app. The background is a sleek, dark studio environment. Their expression is confident and focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACBxVXEo_KYbayFI21K9QH7cUXfG0f92s18cBoEOXXRz8fbiEtgSSBM3cOi0dppuI4d1xDnuMbm6wXAbEYlGUUHC_9gqhLlRoU2FaJLY2VmLMAAwFuXig_QeOgcqZ6iBSIQK2AsB7T3lQrE4xxXSnwUxN-ryp7qD2mYz74OxS-f6xavphK3bahBU1XOhrX_b_xIhjDWMFrj6uWocLTXV1EmItfmN3lXgNQ3kQHUVurP4QT3TSNH7AIH16X_s151MUwI4GoXw5NFiE"/>
+</div>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tighter">AI Studio</h1>
+<button class="text-primary hover:bg-white/10 transition-colors active:scale-95 duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- Content Canvas -->
+<main class="relative z-10 pt-24 pb-32 px-margin-mobile flex flex-col gap-lg max-w-2xl mx-auto">
+<!-- User Profile Hero Card (Glassmorphism) -->
+<section class="bg-white/5 backdrop-blur-xl border border-white/15 rounded-xl p-lg flex flex-col md:flex-row items-center gap-lg relative overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.5)] group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+<div class="relative w-24 h-24 shrink-0">
+<img alt="Avatar" class="w-full h-full rounded-full object-cover border-2 border-primary shadow-[0_0_15px_rgba(208,188,255,0.4)]" data-alt="A close-up stylized avatar of a digital creator in a cyberpunk setting. The lighting is dramatic, featuring deep space blacks contrasted with vibrant neon purple and cyan highlights. The subject has a serious, professional demeanor, fitting for a power user of advanced AI video tools." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbLskcrpSz4Fy4jiBxJ3Wx_yXqYm2v1abNBE9T4tJqmJLbiPqZavVN_PATgKnSEb6XplnNwEwmVR-5iYUlxvSmLx1mQwBnnqbf0wXMlWu5Ygj-1ZxmbKCTCR5gAq3SgavqFhAbq9NRu7JOXkA0EiMJOqXTvyfc1PoBM3ZO756ApitMx_-TbOuZGWU8_YaxZzx30Zys3P5k7j3flKlho9o4tHtMSkfzMDnxJ9JsWLKNaRKk8f1R4obg0Ukof4jSikoxAjMcUnxltF0"/>
+<div class="absolute -bottom-2 -right-2 bg-primary-container text-on-primary-container font-label-sm text-label-sm px-2 py-1 rounded-full border border-surface flex items-center gap-1 shadow-[0_0_10px_rgba(160,120,255,0.5)]">
+<span class="material-symbols-outlined text-[14px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span> PRO
+                </div>
+</div>
+<div class="flex-1 text-center md:text-left z-10">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-1">Creator Pro</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center justify-center md:justify-start gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#2fd9f4]"></span>
+                    AI Automation Active
+                </p>
+</div>
+<button class="z-10 mt-4 md:mt-0 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg font-label-md text-label-md text-on-surface hover:bg-white/20 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit</span> Edit Profile
+            </button>
+</section>
+<!-- Settings Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Subscription Plan Span Card -->
+<section class="col-span-1 md:col-span-2 bg-surface-container-low/60 backdrop-blur-xl border border-white/15 rounded-xl p-lg flex flex-col gap-4 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-tertiary/20 to-transparent blur-2xl rounded-bl-full pointer-events-none"></div>
+<div class="flex justify-between items-start z-10">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">workspace_premium</span> Subscription Plan
+                        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Currently on <strong class="text-tertiary font-label-md text-label-md">Kinetic Tier</strong></p>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-display-lg text-on-surface block">$49</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">/ month</span>
+</div>
+</div>
+<div class="z-10 bg-surface-container-highest/50 rounded-lg p-4 border border-outline-variant/30">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant">AI Render Limit</span>
+<span class="font-label-md text-label-md text-primary">85%</span>
+</div>
+<div class="w-full h-1 bg-surface-dim rounded-full overflow-hidden">
+<div class="h-full bg-tertiary shadow-[0_0_8px_#2fd9f4] w-[85%] relative">
+<div class="absolute inset-0 bg-white/30"></div>
+</div>
+</div>
+</div>
+<button class="z-10 mt-2 w-full py-3 bg-gradient-to-r from-primary to-inverse-primary rounded-lg font-label-md text-label-md text-white shadow-[0_0_20px_rgba(208,188,255,0.4)] hover:shadow-[0_0_30px_rgba(208,188,255,0.6)] transition-all active:scale-[0.98]">
+                    Upgrade to Enterprise AI
+                </button>
+</section>
+<!-- Security Preferences -->
+<section class="bg-surface-container-low/60 backdrop-blur-xl border border-white/15 rounded-xl p-lg flex flex-col gap-4">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-on-surface-variant">lock</span> Security
+                </h3>
+<div class="relative group">
+<label class="absolute left-3 top-2 font-label-sm text-label-sm text-on-surface-variant z-10 transition-colors group-focus-within:text-tertiary">Password</label>
+<input class="w-full bg-surface-container-highest/40 border border-outline-variant/50 rounded-lg pt-6 pb-2 px-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary shadow-inner transition-all placeholder:text-transparent" type="password" value="********"/>
+<button class="absolute right-3 top-4 text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+</button>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface-container-highest/30 rounded-lg border border-outline-variant/20 mt-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">security_update_good</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Two-Factor Auth</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Recommended</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-on-surface after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary shadow-[0_0_10px_rgba(208,188,255,0.3)_inset] peer-checked:shadow-[0_0_15px_rgba(208,188,255,0.5)]"></div>
+</label>
+</div>
+</section>
+<!-- App Preferences -->
+<section class="bg-surface-container-low/60 backdrop-blur-xl border border-white/15 rounded-xl p-lg flex flex-col gap-4">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-on-surface-variant">tune</span> Preferences
+                </h3>
+<div class="relative group">
+<label class="absolute left-3 top-2 font-label-sm text-label-sm text-on-surface-variant z-10 transition-colors group-focus-within:text-tertiary">Language</label>
+<div class="w-full bg-surface-container-highest/40 border border-outline-variant/50 rounded-lg pt-6 pb-2 px-3 font-body-md text-body-md text-on-surface flex justify-between items-center cursor-pointer hover:border-outline-variant transition-colors">
+<span>English (US)</span>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_drop_down</span>
+</div>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface-container-highest/30 rounded-lg border border-outline-variant/20 mt-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">notifications_active</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Push Notifications</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">AI Render Alerts</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-on-surface after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-tertiary peer-checked:shadow-[0_0_15px_#2fd9f4]"></div>
+</label>
+</div>
+</section>
+</div>
+</main>
+</body></html>

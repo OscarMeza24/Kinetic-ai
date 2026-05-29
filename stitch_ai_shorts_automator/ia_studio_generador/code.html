@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Studio - Create Shorts</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Sora -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "tertiary-container": "#009fb4",
+                    "on-primary": "#3c0091",
+                    "on-tertiary": "#00363e",
+                    "tertiary-fixed-dim": "#2fd9f4",
+                    "on-secondary-fixed": "#410000",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "on-surface-variant": "#cbc3d7",
+                    "surface": "#131315",
+                    "inverse-surface": "#e5e1e4",
+                    "on-secondary-container": "#5c0000",
+                    "surface-container-high": "#2a2a2c",
+                    "outline-variant": "#494454",
+                    "surface-container-low": "#1c1b1d",
+                    "background": "#131315",
+                    "on-primary-fixed-variant": "#5516be",
+                    "inverse-on-surface": "#313032",
+                    "surface-tint": "#d0bcff",
+                    "secondary-container": "#ff5540",
+                    "secondary-fixed": "#ffdad4",
+                    "surface-container": "#201f22",
+                    "surface-variant": "#353437",
+                    "surface-bright": "#39393b",
+                    "primary": "#d0bcff",
+                    "on-surface": "#e5e1e4",
+                    "primary-fixed": "#e9ddff",
+                    "on-error-container": "#ffdad6",
+                    "primary-container": "#a078ff",
+                    "on-tertiary-container": "#002f36",
+                    "on-secondary": "#690100",
+                    "surface-container-highest": "#353437",
+                    "surface-dim": "#131315",
+                    "error-container": "#93000a",
+                    "surface-container-lowest": "#0e0e10",
+                    "on-background": "#e5e1e4",
+                    "primary-fixed-dim": "#d0bcff",
+                    "tertiary-fixed": "#a2eeff",
+                    "secondary": "#ffb4a8",
+                    "on-primary-fixed": "#23005c",
+                    "outline": "#958ea0",
+                    "on-secondary-fixed-variant": "#930100",
+                    "on-tertiary-fixed": "#001f25",
+                    "on-primary-container": "#340080",
+                    "inverse-primary": "#6d3bd7",
+                    "tertiary": "#2fd9f4",
+                    "on-tertiary-fixed-variant": "#004e5a",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "xs": "8px",
+                    "base": "4px",
+                    "md": "16px",
+                    "gutter-mobile": "16px",
+                    "sm": "12px",
+                    "lg": "24px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Sora"],
+                    "label-md": ["Sora"],
+                    "display-lg": ["Sora"],
+                    "label-sm": ["Sora"],
+                    "body-lg": ["Sora"],
+                    "headline-lg-mobile": ["Sora"],
+                    "headline-md": ["Sora"],
+                    "body-md": ["Sora"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface h-screen overflow-hidden flex font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- NAVIGATION DRAWER (Desktop) -->
+<nav class="hidden md:flex flex-col fixed inset-y-0 left-0 z-[60] p-lg h-full w-72 rounded-r-xl border-r border-white/15 shadow-2xl bg-surface-container-high/95 backdrop-blur-lg transition-transform duration-300 ease-in-out">
+<!-- Header Profile -->
+<div class="flex items-center gap-4 mb-8 pl-2">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary-container to-tertiary-container flex items-center justify-center border border-white/20 shadow-[0_0_15px_rgba(208,188,255,0.2)]">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<h2 class="font-label-md text-label-md text-primary">Creator Pro</h2>
+<p class="font-label-sm text-label-sm text-tertiary-fixed-dim">AI Automation Active</p>
+</div>
+</div>
+<!-- Drawer Links -->
+<div class="flex flex-col gap-2 mt-4">
+<!-- Inactive -->
+<button class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 w-full text-left transition-colors">
+<span class="material-symbols-outlined" data-icon="youtube_activity">youtube_activity</span>
+<span class="font-label-md text-label-md">My Channels</span>
+</button>
+<button class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 w-full text-left transition-colors">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</button>
+<button class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 w-full text-left transition-colors">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+<span class="font-label-md text-label-md">Brand Kits</span>
+</button>
+<button class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 w-full text-left transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</button>
+</div>
+</nav>
+<!-- TOP APP BAR (Mobile & Global Elements) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 border-b border-white/15 shadow-[0_0_20px_rgba(208,188,255,0.1)] bg-surface/80 backdrop-blur-xl md:pl-[calc(288px+20px)]">
+<!-- Leading Avatar -->
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center md:hidden">
+<span class="material-symbols-outlined text-[16px] text-on-surface" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<!-- Headline / Brand -->
+<h1 class="font-display-lg text-[24px] text-primary tracking-tighter absolute left-1/2 -translate-x-1/2 md:relative md:left-0 md:translate-x-0 md:text-display-lg">AI Studio</h1>
+<!-- Trailing Icon -->
+<button class="text-primary hover:bg-white/10 transition-colors active:scale-95 duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- MAIN CANVAS -->
+<!-- The padding-left handles the fixed side nav on desktop. Top/Bottom padding handles app bars. -->
+<main class="flex-1 h-full overflow-y-auto w-full md:pl-72 pt-[80px] pb-[100px] md:pb-12 px-margin-mobile md:px-12 relative bg-surface">
+<!-- Deep Space Background Element (Subtle Glow) -->
+<div class="fixed top-1/4 left-1/2 w-96 h-96 bg-primary-container/10 blur-[120px] rounded-full pointer-events-none -translate-x-1/2 z-0"></div>
+<!-- Content Container -->
+<div class="max-w-3xl mx-auto relative z-10 flex flex-col gap-6">
+<!-- Hero Section -->
+<div class="mb-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-2">Create Short</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">Command the AI. Describe your vision and set the creative parameters.</p>
+</div>
+<!-- Prompt Input Area (Glass Card) -->
+<div class="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-xl p-md shadow-[0_8px_32px_rgba(0,0,0,0.4)] relative group overflow-hidden">
+<!-- Inner Glow on hover -->
+<div class="absolute inset-0 bg-gradient-to-r from-tertiary/0 via-tertiary/5 to-tertiary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+<label class="font-label-sm text-label-sm text-tertiary-fixed-dim uppercase tracking-wider block mb-3 flex items-center gap-2" for="prompt-input">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+                    What is your video about?
+                </label>
+<div class="relative">
+<textarea class="w-full bg-surface-container/50 border border-outline-variant/50 rounded-lg p-4 font-body-lg text-body-lg text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all resize-none shadow-inner" id="prompt-input" placeholder="E.g., 'A dynamic montage exploring the neon-lit streets of Tokyo at night, focusing on fast pacing and futuristic vibes.'" rows="4"></textarea>
+</div>
+</div>
+<!-- Creative Toggles Grid (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Tono de Voz -->
+<div class="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-xl p-5 shadow-[0_4px_24px_rgba(0,0,0,0.2)]">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">record_voice_over</span>
+                        Tono de Voz
+                    </h3>
+<div class="flex flex-wrap gap-2">
+<!-- Active Chip -->
+<button class="bg-primary-container/20 border border-primary/40 rounded-full px-4 py-2 font-label-sm text-label-sm text-primary shadow-[0_0_15px_rgba(208,188,255,0.15)] flex items-center gap-1 transition-all">
+                            Formal
+                        </button>
+<!-- Inactive Chips -->
+<button class="bg-surface-container border border-outline-variant/50 rounded-full px-4 py-2 font-label-sm text-label-sm text-on-surface-variant hover:bg-white/10 hover:border-outline-variant transition-all">
+                            Divertido
+                        </button>
+<button class="bg-surface-container border border-outline-variant/50 rounded-full px-4 py-2 font-label-sm text-label-sm text-on-surface-variant hover:bg-white/10 hover:border-outline-variant transition-all">
+                            Inspirador
+                        </button>
+</div>
+</div>
+<!-- Estilo Visual -->
+<div class="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-xl p-5 shadow-[0_4px_24px_rgba(0,0,0,0.2)]">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">palette</span>
+                        Estilo Visual
+                    </h3>
+<div class="flex flex-wrap gap-2">
+<!-- Inactive Chip -->
+<button class="bg-surface-container border border-outline-variant/50 rounded-full px-4 py-2 font-label-sm text-label-sm text-on-surface-variant hover:bg-white/10 hover:border-outline-variant transition-all flex items-center gap-1">
+                            Minimalista
+                        </button>
+<!-- Active Chip (Neon Cyan glow) -->
+<button class="bg-tertiary-container/20 border border-tertiary/40 rounded-full px-4 py-2 font-label-sm text-label-sm text-tertiary-fixed-dim shadow-[0_0_15px_rgba(47,217,244,0.15)] flex items-center gap-1 transition-all">
+                            Cinematic
+                        </button>
+<!-- Inactive Chip -->
+<button class="bg-surface-container border border-outline-variant/50 rounded-full px-4 py-2 font-label-sm text-label-sm text-on-surface-variant hover:bg-white/10 hover:border-outline-variant transition-all flex items-center gap-1">
+                            Animado
+                        </button>
+</div>
+</div>
+</div>
+<!-- Progress Indicator Panel -->
+<div class="bg-surface-container-low/80 border border-outline-variant/30 rounded-xl p-5 mt-2">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-widest uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">memory</span>
+                        AI Engine Status
+                    </span>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary-container/10 px-2 py-1 rounded">Idle / Ready</span>
+</div>
+<!-- Simulated Progress Track -->
+<div class="w-full h-[2px] bg-surface-variant rounded-full overflow-hidden relative">
+<!-- Neon pulse indicator -->
+<div class="absolute top-0 left-0 h-full w-[15%] bg-tertiary shadow-[0_0_10px_var(--tw-colors-tertiary)] rounded-full opacity-50"></div>
+</div>
+<!-- Phases -->
+<div class="mt-4 grid grid-cols-3 gap-2 opacity-60">
+<div class="flex flex-col gap-1 items-start">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">subject</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Analyze Prompt</span>
+</div>
+<div class="flex flex-col gap-1 items-center">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">movie_edit</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Generate Scenes</span>
+</div>
+<div class="flex flex-col gap-1 items-end">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">graphic_eq</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Sync Audio</span>
+</div>
+</div>
+</div>
+<!-- Primary Action Button -->
+<div class="mt-6 md:mt-8 pb-4">
+<button class="w-full bg-gradient-to-r from-primary-container to-inverse-primary text-white font-label-md text-label-md py-5 rounded-xl flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(208,188,255,0.3)] hover:shadow-[0_0_30px_rgba(208,188,255,0.5)] transition-all active:scale-95 duration-200 border border-white/20 relative overflow-hidden group">
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+<span class="material-symbols-outlined relative z-10" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="relative z-10 uppercase tracking-wider font-bold">Generate Magic</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BOTTOM NAV BAR (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-2 bg-surface/60 backdrop-blur-2xl rounded-t-xl border-t border-white/10 shadow-[0_-8px_32px_rgba(0,0,0,0.4)]">
+<!-- Inactive -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 w-16">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-[10px] leading-none">Home</span>
+</button>
+<!-- ACTIVE TAB (Studio) -->
+<button class="flex flex-col items-center justify-center bg-primary-container/20 text-primary rounded-full px-4 py-1.5 shadow-[0_0_15px_rgba(208,188,255,0.3)] hover:text-primary transition-all active:scale-90 duration-150 border border-primary/20">
+<span class="material-symbols-outlined mb-0.5" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-[10px] leading-none">Studio</span>
+</button>
+<!-- Inactive -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 w-16">
+<span class="material-symbols-outlined mb-1" data-icon="movie_edit">movie_edit</span>
+<span class="font-label-sm text-[10px] leading-none">Editor</span>
+</button>
+<!-- Inactive -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 w-16">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-sm text-[10px] leading-none">Schedule</span>
+</button>
+<!-- Inactive -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 w-16">
+<span class="material-symbols-outlined mb-1" data-icon="psychology">psychology</span>
+<span class="font-label-sm text-[10px] leading-none">Niche</span>
+</button>
+</nav>
+</body></html>

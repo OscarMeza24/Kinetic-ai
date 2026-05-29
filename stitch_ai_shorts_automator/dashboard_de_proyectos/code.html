@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Studio - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "tertiary-container": "#009fb4",
+                    "on-primary": "#3c0091",
+                    "on-tertiary": "#00363e",
+                    "tertiary-fixed-dim": "#2fd9f4",
+                    "on-secondary-fixed": "#410000",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "on-surface-variant": "#cbc3d7",
+                    "surface": "#131315",
+                    "inverse-surface": "#e5e1e4",
+                    "on-secondary-container": "#5c0000",
+                    "surface-container-high": "#2a2a2c",
+                    "outline-variant": "#494454",
+                    "surface-container-low": "#1c1b1d",
+                    "background": "#131315",
+                    "on-primary-fixed-variant": "#5516be",
+                    "inverse-on-surface": "#313032",
+                    "surface-tint": "#d0bcff",
+                    "secondary-container": "#ff5540",
+                    "secondary-fixed": "#ffdad4",
+                    "surface-container": "#201f22",
+                    "surface-variant": "#353437",
+                    "surface-bright": "#39393b",
+                    "primary": "#d0bcff",
+                    "on-surface": "#e5e1e4",
+                    "primary-fixed": "#e9ddff",
+                    "on-error-container": "#ffdad6",
+                    "primary-container": "#a078ff",
+                    "on-tertiary-container": "#002f36",
+                    "on-secondary": "#690100",
+                    "surface-container-highest": "#353437",
+                    "surface-dim": "#131315",
+                    "error-container": "#93000a",
+                    "surface-container-lowest": "#0e0e10",
+                    "on-background": "#e5e1e4",
+                    "primary-fixed-dim": "#d0bcff",
+                    "tertiary-fixed": "#a2eeff",
+                    "secondary": "#ffb4a8",
+                    "on-primary-fixed": "#23005c",
+                    "outline": "#958ea0",
+                    "on-secondary-fixed-variant": "#930100",
+                    "on-tertiary-fixed": "#001f25",
+                    "on-primary-container": "#340080",
+                    "inverse-primary": "#6d3bd7",
+                    "tertiary": "#2fd9f4",
+                    "on-tertiary-fixed-variant": "#004e5a",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "xs": "8px",
+                    "base": "4px",
+                    "md": "16px",
+                    "gutter-mobile": "16px",
+                    "sm": "12px",
+                    "lg": "24px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg": [
+                            "Sora"
+                    ],
+                    "label-md": [
+                            "Sora"
+                    ],
+                    "display-lg": [
+                            "Sora"
+                    ],
+                    "label-sm": [
+                            "Sora"
+                    ],
+                    "body-lg": [
+                            "Sora"
+                    ],
+                    "headline-lg-mobile": [
+                            "Sora"
+                    ],
+                    "headline-md": [
+                            "Sora"
+                    ],
+                    "body-md": [
+                            "Sora"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "40px",
+                            {
+                                    "lineHeight": "48px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131315; /* background */
+            background-image: radial-gradient(circle at top right, rgba(160, 120, 255, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(255, 85, 64, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        .glass-panel {
+            background: rgba(42, 42, 44, 0.4); /* surface-container-high with opacity */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(208, 188, 255, 0.15);
+        }
+        .ai-pulse {
+            position: relative;
+            overflow: hidden;
+        }
+        .ai-pulse::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(47, 217, 244, 0.2), transparent);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background font-body-md antialiased md:pl-72 pb-24 md:pb-0">
+<!-- TopAppBar Mobile -->
+<header class="md:hidden bg-surface/80 backdrop-blur-xl fixed top-0 w-full border-b border-white/15 shadow-[0_0_20px_rgba(208,188,255,0.1)] flex justify-between items-center px-margin-mobile h-16 w-full z-50">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline overflow-hidden flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="person">person</span>
+</div>
+<span class="font-display-lg text-display-lg text-primary tracking-tighter text-[24px]">AI Studio</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-white/10 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- NavigationDrawer Web -->
+<aside class="hidden md:flex flex-col p-lg bg-surface-container-high/95 backdrop-blur-lg h-full w-72 rounded-r-xl border-r border-white/15 shadow-2xl fixed inset-y-0 left-0 z-[60]">
+<div class="flex items-center gap-sm mb-xl px-xs">
+<span class="font-display-lg text-display-lg text-primary tracking-tighter text-[28px]">AI Studio</span>
+</div>
+<div class="flex items-center gap-md mb-xl p-md rounded-xl bg-surface-container-lowest/50 border border-white/5">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Creator Pro Avatar" class="w-full h-full object-cover" data-alt="A futuristic, high-contrast portrait of a digital creator. They are illuminated by neon cyan and deep purple studio lighting. The background is a stark, absolute black, typical of a modern dark-mode aesthetic. The subject is wearing dark, minimalist clothing, looking directly at the camera with a confident, energetic expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj8g5BjVQ2u7dlVhA9wpb-5vYJWtSkUDqL0Zh3J-HMxZ1CdxGrAriuCluoO6mL7iA3jhVrqHXQ8hFY8DC3OCg-o_uoTFXYAyOn968TuuvsGEMX2xpJO7y2_9DvodcPZAUaA3mXLoKM_kWxiKehtZQfWhCKLTPz7eomY_21pt6trav5Wh28KkdGPiUUgT8Taf7D9a79ze1H8I8BpniLPTDio34SM7OO68-CMN-uYHAuNQo1mCm4VwT7yvvAoZ6bvaIwY6hBA9lFWyA"/>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">Creator Pro</h3>
+<p class="font-label-sm text-label-sm text-tertiary">AI Automation Active</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm rounded-lg bg-primary-container text-on-primary-container font-bold transition-transform duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 transition-transform duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="youtube_activity">youtube_activity</span>
+<span class="font-label-md text-label-md">My Channels</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 transition-transform duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 transition-transform duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+<span class="font-label-md text-label-md">Brand Kits</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 transition-transform duration-300 ease-in-out mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="pt-24 md:pt-lg px-margin-mobile md:px-xl max-w-7xl mx-auto space-y-xl">
+<!-- Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-base">Dashboard</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Here's how your AI channels are performing.</p>
+</div>
+<button class="hidden md:flex items-center gap-xs px-lg py-sm rounded-full bg-gradient-to-r from-primary-container to-inverse-primary text-white font-label-md text-label-md glow-effect hover:brightness-110 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                New Short
+            </button>
+</div>
+<!-- Metrics Grid (Bento Style) -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm md:gap-md">
+<!-- Views Card -->
+<div class="glass-panel rounded-xl p-md flex flex-col justify-between col-span-2 md:col-span-1 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<div class="flex items-center justify-between mb-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Views</span>
+<span class="material-symbols-outlined text-primary" data-icon="visibility">visibility</span>
+</div>
+<div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile md:text-headline-lg text-on-surface">1.2M</div>
+<div class="font-label-sm text-label-sm text-tertiary flex items-center gap-base mt-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                        +15% this week
+                    </div>
+</div>
+</div>
+<!-- Subscribers Card -->
+<div class="glass-panel rounded-xl p-md flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary-container/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<div class="flex items-center justify-between mb-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Subs</span>
+<span class="material-symbols-outlined text-secondary" data-icon="group_add">group_add</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">14.5K</div>
+<div class="font-label-sm text-label-sm text-tertiary flex items-center gap-base mt-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                        +840
+                    </div>
+</div>
+</div>
+<!-- Watch Time Card -->
+<div class="glass-panel rounded-xl p-md flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<div class="flex items-center justify-between mb-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Watch Time</span>
+<span class="material-symbols-outlined text-tertiary" data-icon="schedule">schedule</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">3.2K<span class="text-on-surface-variant text-sm">h</span></div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-base mt-xs">
+                        Stable
+                    </div>
+</div>
+</div>
+<!-- Output Card -->
+<div class="glass-panel rounded-xl p-md flex flex-col justify-between col-span-2 md:col-span-1 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary-container/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<div class="flex items-center justify-between mb-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Shorts Gen</span>
+<span class="material-symbols-outlined text-primary-container" data-icon="movie_creation">movie_creation</span>
+</div>
+<div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile md:text-headline-lg text-on-surface">128</div>
+<div class="font-label-sm text-label-sm text-tertiary flex items-center gap-base mt-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                        +12 today
+                    </div>
+</div>
+</div>
+</div>
+<!-- Active Automations Section -->
+<div>
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Active Automations</h2>
+<a class="font-label-md text-label-md text-primary hover:text-primary-fixed transition-colors" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Generating Card -->
+<div class="glass-panel rounded-xl p-sm flex flex-col gap-sm border-primary/30 glow-effect">
+<div class="relative aspect-video rounded-lg overflow-hidden bg-surface-container-lowest">
+<img alt="Abstract Tech Background" class="w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="A dynamic, generative abstract visualization of digital data flow. Neon cyan and deep purple glowing lines twist and intersect against a pitch-black background. The style is highly futuristic and energetic, representing an active artificial intelligence processing complex algorithms. The composition is off-center, leaving space for text overlay." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhypoN1aGnA8waYegYktq2_qyYzP8HAGTM7krrTmLIQ8p3kd70N4E6uT6PbghXxUiWsiMKCV4W6I3gVhKzXYYbxQo6shvjbgQWxzVAYG5gumCbtzltSa_RKpm_z5bqIMCWkXukiV4lwx0yIVckPzD5r6HXjW0OM3oqThTtUnZUTUEgUmQe8DmQIa_Fi6bJ-Vm7Sns0oSM6AVJfVB3V1LHNk-Vv9h43vkSRnZ-bbUU79vOyi2FrpZvcgKunREWmpOhrzu4dzveJ9xw"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/40">
+<span class="material-symbols-outlined text-tertiary text-4xl animate-spin" data-icon="progress_activity">progress_activity</span>
+</div>
+<div class="absolute top-2 left-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-md border border-white/10 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Generating</span>
+</div>
+</div>
+<div class="px-xs">
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Tech News Daily - Episode 42</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="psychology">psychology</span>
+                            Script &amp; Voiceover
+                        </p>
+</div>
+<div class="mt-auto px-xs pb-xs">
+<div class="w-full bg-surface-container-high rounded-full h-1.5 mb-2 overflow-hidden border border-white/5">
+<div class="bg-tertiary h-1.5 rounded-full ai-pulse" style="width: 65%"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant text-[10px]">
+<span>Rendering Frames</span>
+<span>65%</span>
+</div>
+</div>
+</div>
+<!-- Scheduled Card 1 -->
+<div class="glass-panel rounded-xl p-sm flex flex-col gap-sm">
+<div class="relative aspect-video rounded-lg overflow-hidden bg-surface-container-lowest">
+<img alt="Cyberpunk City" class="w-full h-full object-cover" data-alt="A vibrant, high-contrast cyberpunk cityscape at night. Neon signs in vivid pinks and blues illuminate wet, dark streets. The style is cinematic and atmospheric, evoking a sense of futuristic storytelling. The lighting is dramatic, with deep shadows and bright, glowing highlights typical of a dark-mode, tech-focused aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUBf_zCOFjM3BEXu07g3ZP7HU-U8sug_ekLZrU5nvw_1_E6SGMNhI9DHmIQD0ByGcG2v4HWoRFKzAvgMz4yIOh8zvJH7mxsz7kP48mY1qDdae65u8C2XXNWoe6kr5wgorBN4U-OlxOzKE9t3OKmWx3g9JBuhTDEGTpH7V6t8nDGcDjz6C30Ze7DRVInGLQBqtGemPXuPBhhLefywIm6x-vdSWfhmYS1aele-PJJ2iOjlutr0JxeWA_fzj9cImfhFgb0h8-2dj-u5w"/>
+<div class="absolute top-2 left-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-md border border-white/10 flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[14px]" data-icon="calendar_clock">calendar_clock</span>
+<span class="font-label-sm text-label-sm text-on-surface">Scheduled</span>
+</div>
+</div>
+<div class="px-xs">
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Top 5 Cyberpunk Games</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="youtube_activity">youtube_activity</span>
+                            Gaming Hub Channel
+                        </p>
+</div>
+<div class="mt-auto px-xs pb-xs flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="event">event</span>
+                            Today, 18:00
+                         </div>
+<button class="text-primary hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Scheduled Card 2 -->
+<div class="glass-panel rounded-xl p-sm flex flex-col gap-sm">
+<div class="relative aspect-video rounded-lg overflow-hidden bg-surface-container-lowest">
+<img alt="Finance Chart" class="w-full h-full object-cover grayscale opacity-80" data-alt="A stylized, macro shot of financial charts and rising graphs on a dark digital screen. The image is mostly desaturated with subtle hints of glowing cyan line graphs. It represents wealth building and business analytics in a sleek, modern, and serious tone. The lighting is cool and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD1E13okqgviMJFvImZvnZ22IyFJUIw0LK7wLqIWBQ6KmdcRD168l_9BSRqvSsGCFnNTgCwbSX6KSB7tUPRz7UUQ_YD6pJAtNxI8Sq1llOhziN6f5kVKLEx7aLiAesTRckeyDndTofe4MIq_Td8U5nEwoJ9DGf-bNeZXHfLuArmcpa4gv_qqKjkee_6XPsQS-hjdYkTC586h0FajF4bAd_oibvmOrEpOsd-U854dy-kCBi3cDn8hmJpnYuWvD_P-aG29SRINX6KD8"/>
+<div class="absolute top-2 left-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-md border border-white/10 flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[14px]" data-icon="calendar_clock">calendar_clock</span>
+<span class="font-label-sm text-label-sm text-on-surface">Scheduled</span>
+</div>
+</div>
+<div class="px-xs">
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Crypto Market Update</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="youtube_activity">youtube_activity</span>
+                            Finance Daily
+                        </p>
+</div>
+<div class="mt-auto px-xs pb-xs flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="event">event</span>
+                            Tomorrow, 09:00
+                         </div>
+<button class="text-primary hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button Mobile -->
+<button class="md:hidden fixed bottom-24 right-margin-mobile w-14 h-14 bg-gradient-to-tr from-primary-container to-inverse-primary rounded-full shadow-[0_0_20px_rgba(208,188,255,0.4)] flex items-center justify-center text-white z-40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[28px]" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar Mobile -->
+<nav class="md:hidden bg-surface/60 backdrop-blur-2xl fixed bottom-0 w-full rounded-t-xl border-t border-white/10 shadow-[0_-8px_32px_rgba(0,0,0,0.4)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-2">
+<a class="flex flex-col items-center justify-center bg-primary-container/20 text-primary rounded-full px-4 py-1 shadow-[0_0_15px_rgba(208,188,255,0.3)] hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-sm text-label-sm mt-1">Studio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="movie_edit">movie_edit</span>
+<span class="font-label-sm text-label-sm mt-1">Editor</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-sm text-label-sm mt-1">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-label-sm text-label-sm mt-1">Niche</span>
+</a>
+</nav>
+</body></html>

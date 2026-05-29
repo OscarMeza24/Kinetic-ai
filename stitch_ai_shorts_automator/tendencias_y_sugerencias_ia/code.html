@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tendencias y Sugerencias - AI Studio</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#00363e",
+                        "on-primary-fixed-variant": "#5516be",
+                        "on-error": "#690005",
+                        "tertiary": "#2fd9f4",
+                        "surface-tint": "#d0bcff",
+                        "surface-container-highest": "#353437",
+                        "surface": "#131315",
+                        "on-tertiary-fixed": "#001f25",
+                        "surface-container-lowest": "#0e0e10",
+                        "inverse-primary": "#6d3bd7",
+                        "error": "#ffb4ab",
+                        "inverse-on-surface": "#313032",
+                        "outline": "#958ea0",
+                        "on-primary": "#3c0091",
+                        "surface-variant": "#353437",
+                        "secondary": "#ffb4a8",
+                        "on-tertiary-container": "#002f36",
+                        "inverse-surface": "#e5e1e4",
+                        "surface-container-high": "#2a2a2c",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "on-surface": "#e5e1e4",
+                        "error-container": "#93000a",
+                        "secondary-container": "#ff5540",
+                        "outline-variant": "#494454",
+                        "on-secondary": "#690100",
+                        "primary": "#d0bcff",
+                        "on-primary-fixed": "#23005c",
+                        "tertiary-container": "#009fb4",
+                        "on-secondary-fixed": "#410000",
+                        "primary-fixed": "#e9ddff",
+                        "on-primary-container": "#340080",
+                        "primary-container": "#a078ff",
+                        "surface-container": "#201f22",
+                        "surface-bright": "#39393b",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-background": "#e5e1e4",
+                        "tertiary-fixed-dim": "#2fd9f4",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdad4",
+                        "tertiary-fixed": "#a2eeff",
+                        "surface-dim": "#131315",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "background": "#131315",
+                        "surface-container-low": "#1c1b1d",
+                        "on-surface-variant": "#cbc3d7",
+                        "on-secondary-fixed-variant": "#930100",
+                        "on-secondary-container": "#5c0000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "lg": "24px",
+                        "gutter-mobile": "16px",
+                        "base": "4px",
+                        "margin-mobile": "20px",
+                        "xs": "8px",
+                        "xl": "32px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "body-md": ["Sora"],
+                        "label-sm": ["Sora"],
+                        "body-lg": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "headline-md": ["Sora"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(19, 19, 21, 0.5);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(208, 188, 255, 0.2);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(208, 188, 255, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row relative">
+<!-- Ambient Background Glow -->
+<div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary-container/10 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary-container/10 blur-[120px]"></div>
+</div>
+<!-- Navigation Drawer (Desktop) -->
+<aside class="bg-surface-container-high/95 backdrop-blur-lg text-primary font-body-md text-body-md h-full w-72 rounded-r-xl border-r border-white/15 shadow-2xl fixed inset-y-0 left-0 z-[60] hidden md:flex flex-col p-lg transition-transform duration-300 ease-in-out">
+<div class="flex items-center gap-4 mb-8">
+<img alt="User Avatar" class="h-12 w-12 rounded-full border border-primary/30 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9nLB8YDioKLs3vavkZex_Y-iJLuJN1k7clDZFCmPMr67xwcy8N0d0EjKepn79De8rJUBVHqSZn1ScTpHztjiHtST0NKRQMuO3nkXZraNk8dppjB_Bd_f_YxdlxV0Qva8tdLRBhweO5YnVmfbgxj5KYgfo9B_RIrN11cvSQ2Xjd2BZ_RfrnbwfrbRgnGUwUQN6vdZwX27xrWnqTtl1biXZL7J72ehO78r19JFSQ33Z9lhcP6dHpMqcjxkFXkpAq7s3BmnGllC55us"/>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-primary">Creator Pro</span>
+<span class="text-on-surface-variant text-sm">AI Automation Active</span>
+</div>
+</div>
+<nav class="flex flex-col gap-2 flex-1">
+<button class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-colors text-left w-full">
+<span class="material-symbols-outlined">youtube_activity</span>
+<span>My Channels</span>
+</button>
+<button class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-colors text-left w-full">
+<span class="material-symbols-outlined">monitoring</span>
+<span>Analytics</span>
+</button>
+<button class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-colors text-left w-full">
+<span class="material-symbols-outlined">palette</span>
+<span>Brand Kits</span>
+</button>
+<!-- Navigation spacer -->
+<div class="flex-1"></div>
+<button class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-colors text-left w-full mt-auto">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</button>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col relative w-full md:ml-72 pb-24 md:pb-0 h-screen overflow-y-auto">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-xl text-primary font-headline-md text-headline-md-mobile fixed top-0 w-full md:w-[calc(100%-18rem)] border-b border-white/15 shadow-[0_0_20px_rgba(208,188,255,0.1)] flex justify-between items-center px-margin-mobile h-16 z-50">
+<div class="h-8 w-8 rounded-full overflow-hidden border border-white/20 flex-shrink-0 md:hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM60u4MuhbRjvGnPjpywONwRx84Fayo23F2U1axalqaGARdr75_O-DfC5dPDtyjnbQsfQZdaZTfBBblOEvpNtlhyTpzyJ1ifQQgdaH8RpPDBuW-ipmD4cvZ9cTBbXnzR_nfKCaav5xg6oMO3uQxa4-qncfvRZZL7F6Q3ivbImUvpNGvFicLpZRDhKc6vjPSV95M_CUTPQB3WTvcULy5ETndVnvRUVEBAu2tBOVQrPoWSNBO3yMpSCygkQbOfl6gkIgRDMubUpHk9I"/>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tighter hidden md:block w-full text-center md:text-left">AI Studio</h1>
+<h1 class="font-headline-md text-headline-md-mobile md:hidden flex-1 text-center truncate px-4">Tendencias y Sugerencias</h1>
+<button class="hover:bg-white/10 transition-colors active:scale-95 duration-200 p-2 rounded-full text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<!-- Page Content -->
+<div class="px-margin-mobile pt-24 pb-8 md:px-lg md:pt-28 flex flex-col gap-8 max-w-7xl mx-auto w-full">
+<!-- Search Bar -->
+<div class="relative w-full group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant group-focus-within:text-tertiary transition-colors">search</span>
+</div>
+<input class="w-full bg-surface-container/50 backdrop-blur-md border border-white/10 rounded-full py-3 pl-12 pr-4 text-on-surface placeholder-on-surface-variant focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]" placeholder="Explorar nichos específicos..." type="text"/>
+<button class="absolute inset-y-1 right-1 bg-white/10 hover:bg-white/20 text-white rounded-full px-4 text-sm font-semibold transition-colors flex items-center border border-white/5">
+                    Analizar
+                </button>
+</div>
+<!-- Tendencias Globales -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Tendencias Globales</h2>
+</div>
+<div class="flex flex-wrap gap-3">
+<!-- AI Chip Style -->
+<div class="bg-surface-container-low/80 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 flex items-center gap-2 text-on-surface-variant text-sm hover:bg-surface-container/90 hover:border-tertiary hover:shadow-[0_0_12px_rgba(47,217,244,0.15),inset_0_0_8px_rgba(47,217,244,0.2)] hover:text-tertiary transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[18px] group-hover:text-tertiary transition-colors">trending_up</span>
+<span class="font-label-md">#AI_Tools_2024</span>
+</div>
+<div class="bg-surface-container-low/80 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 flex items-center gap-2 text-on-surface-variant text-sm hover:bg-surface-container/90 hover:border-tertiary hover:shadow-[0_0_12px_rgba(47,217,244,0.15),inset_0_0_8px_rgba(47,217,244,0.2)] hover:text-tertiary transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[18px] group-hover:text-tertiary transition-colors">trending_up</span>
+<span class="font-label-md">Tech Gadget Reviews</span>
+</div>
+<div class="bg-surface-container-low/80 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 flex items-center gap-2 text-on-surface-variant text-sm hover:bg-surface-container/90 hover:border-tertiary hover:shadow-[0_0_12px_rgba(47,217,244,0.15),inset_0_0_8px_rgba(47,217,244,0.2)] hover:text-tertiary transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[18px] group-hover:text-tertiary transition-colors">trending_up</span>
+<span class="font-label-md">Minimal Desk Setup</span>
+</div>
+<div class="bg-surface-container-low/80 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 flex items-center gap-2 text-on-surface-variant text-sm hover:bg-surface-container/90 hover:border-tertiary hover:shadow-[0_0_12px_rgba(47,217,244,0.15),inset_0_0_8px_rgba(47,217,244,0.2)] hover:text-tertiary transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[18px] group-hover:text-tertiary transition-colors">trending_up</span>
+<span class="font-label-md">Coding ASMR</span>
+</div>
+<div class="bg-surface-container-low/80 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 flex items-center gap-2 text-on-surface-variant text-sm hover:bg-surface-container/90 hover:border-tertiary hover:shadow-[0_0_12px_rgba(47,217,244,0.15),inset_0_0_8px_rgba(47,217,244,0.2)] hover:text-tertiary transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[18px] group-hover:text-tertiary transition-colors">trending_up</span>
+<span class="font-label-md">#ProductivityHacks</span>
+</div>
+</div>
+</section>
+<!-- Sugerencias para Ti -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center gap-2 justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Sugerencias para Ti</h2>
+</div>
+<button class="text-primary text-sm font-semibold hover:text-primary-container transition-colors flex items-center gap-1">
+                        Refrescar <span class="material-symbols-outlined text-[16px]">refresh</span>
+</button>
+</div>
+<!-- Bento Grid / Glass Cards Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Card 1 -->
+<div class="bg-surface/20 backdrop-blur-xl border border-white/10 rounded-xl p-5 relative overflow-hidden flex flex-col gap-4 shadow-[0_4px_24px_rgba(0,0,0,0.2)] group hover:border-primary/30 transition-colors">
+<!-- AI processing background glow -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+<div class="flex justify-between items-start z-10">
+<span class="bg-primary/20 text-primary border border-primary/30 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">Tech Niche</span>
+<div class="flex flex-col items-end">
+<span class="text-tertiary font-display-lg text-[28px] leading-none drop-shadow-[0_0_8px_rgba(47,217,244,0.5)]">94%</span>
+<span class="text-on-surface-variant text-[10px] uppercase font-bold tracking-widest">Potencial Viral</span>
+</div>
+</div>
+<h3 class="font-headline-md text-[20px] leading-tight text-white z-10 mt-2">"5 Herramientas de IA que te ahorrarán 10 horas esta semana"</h3>
+<p class="text-on-surface-variant font-body-md text-sm line-clamp-2 z-10">Un formato de lista rápida enfocado en productividad. Alto engagement en los primeros 3 segundos garantizado por el gancho de 'ahorro de tiempo'.</p>
+<div class="mt-auto pt-4 flex flex-col gap-2 z-10">
+<button class="w-full bg-gradient-to-r from-primary-container to-inverse-primary text-white py-2.5 rounded-lg text-sm font-semibold shadow-[0_0_15px_rgba(208,188,255,0.3)] hover:shadow-[0_0_25px_rgba(208,188,255,0.6)] hover:brightness-110 transition-all flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">movie_edit</span>
+                                Generate in Studio
+                            </button>
+<button class="w-full bg-white/5 backdrop-blur-[20px] border border-white/10 text-on-surface py-2 rounded-lg text-sm font-semibold hover:bg-white/10 hover:border-white/20 transition-colors">
+                                Quick Draft
+                            </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface/20 backdrop-blur-xl border border-white/10 rounded-xl p-5 relative overflow-hidden flex flex-col gap-4 shadow-[0_4px_24px_rgba(0,0,0,0.2)] group hover:border-tertiary/30 transition-colors">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-tertiary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+<div class="flex justify-between items-start z-10">
+<span class="bg-tertiary/20 text-tertiary border border-tertiary/30 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">Setup Tour</span>
+<div class="flex flex-col items-end">
+<span class="text-tertiary font-display-lg text-[28px] leading-none drop-shadow-[0_0_8px_rgba(47,217,244,0.5)]">88%</span>
+<span class="text-on-surface-variant text-[10px] uppercase font-bold tracking-widest">Potencial Viral</span>
+</div>
+</div>
+<h3 class="font-headline-md text-[20px] leading-tight text-white z-10 mt-2">"El error #1 en tu Setup que arruina tu postura"</h3>
+<p class="text-on-surface-variant font-body-md text-sm line-clamp-2 z-10">Contenido educativo con tono de advertencia. Funciona excelente con una transición rápida visual del error a la solución.</p>
+<div class="mt-auto pt-4 flex flex-col gap-2 z-10">
+<button class="w-full bg-gradient-to-r from-primary-container to-inverse-primary text-white py-2.5 rounded-lg text-sm font-semibold shadow-[0_0_15px_rgba(208,188,255,0.3)] hover:shadow-[0_0_25px_rgba(208,188,255,0.6)] hover:brightness-110 transition-all flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">movie_edit</span>
+                                Generate in Studio
+                            </button>
+<button class="w-full bg-white/5 backdrop-blur-[20px] border border-white/10 text-on-surface py-2 rounded-lg text-sm font-semibold hover:bg-white/10 hover:border-white/20 transition-colors">
+                                Quick Draft
+                            </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface/20 backdrop-blur-xl border border-white/10 rounded-xl p-5 relative overflow-hidden flex flex-col gap-4 shadow-[0_4px_24px_rgba(0,0,0,0.2)] group hover:border-secondary/30 transition-colors">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+<div class="flex justify-between items-start z-10">
+<span class="bg-secondary/20 text-secondary border border-secondary/30 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">Review</span>
+<div class="flex flex-col items-end">
+<span class="text-secondary font-display-lg text-[28px] leading-none drop-shadow-[0_0_8px_rgba(255,180,168,0.5)]">82%</span>
+<span class="text-on-surface-variant text-[10px] uppercase font-bold tracking-widest">Potencial Viral</span>
+</div>
+</div>
+<h3 class="font-headline-md text-[20px] leading-tight text-white z-10 mt-2">"¿Vale la pena este teclado en 2024? Test de sonido ASMR"</h3>
+<p class="text-on-surface-variant font-body-md text-sm line-clamp-2 z-10">Tendencia creciente en videos de sonido mecánico. Recomendado usar cortes rápidos y enfoque macro en las teclas.</p>
+<div class="mt-auto pt-4 flex flex-col gap-2 z-10">
+<button class="w-full bg-gradient-to-r from-primary-container to-inverse-primary text-white py-2.5 rounded-lg text-sm font-semibold shadow-[0_0_15px_rgba(208,188,255,0.3)] hover:shadow-[0_0_25px_rgba(208,188,255,0.6)] hover:brightness-110 transition-all flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">movie_edit</span>
+                                Generate in Studio
+                            </button>
+<button class="w-full bg-white/5 backdrop-blur-[20px] border border-white/10 text-on-surface py-2 rounded-lg text-sm font-semibold hover:bg-white/10 hover:border-white/20 transition-colors">
+                                Quick Draft
+                            </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="bg-surface/60 backdrop-blur-2xl text-primary font-label-sm text-label-sm fixed bottom-0 w-full rounded-t-xl border-t border-white/10 shadow-[0_-8px_32px_rgba(0,0,0,0.4)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-2 md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 p-2 gap-1 w-16">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 p-2 gap-1 w-16">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span>Studio</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 p-2 gap-1 w-16">
+<span class="material-symbols-outlined">movie_edit</span>
+<span>Editor</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 p-2 gap-1 w-16">
+<span class="material-symbols-outlined">calendar_month</span>
+<span>Schedule</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container/20 text-primary rounded-full px-4 py-1 shadow-[0_0_15px_rgba(208,188,255,0.3)] hover:text-primary transition-all active:scale-90 duration-150 gap-1 w-16">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span>Niche</span>
+</button>
+</nav>
+</body></html>

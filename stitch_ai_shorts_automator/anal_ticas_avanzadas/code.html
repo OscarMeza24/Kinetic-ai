@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Studio - Analytics</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#131315",
+                        "surface-container": "#201f22",
+                        "on-surface-variant": "#cbc3d7",
+                        "surface-variant": "#353437",
+                        "inverse-on-surface": "#313032",
+                        "background": "#131315",
+                        "secondary-fixed": "#ffdad4",
+                        "surface": "#131315",
+                        "on-primary-fixed-variant": "#5516be",
+                        "on-tertiary": "#00363e",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e5e1e4",
+                        "on-secondary-fixed-variant": "#930100",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e5e1e4",
+                        "surface-container-low": "#1c1b1d",
+                        "outline-variant": "#494454",
+                        "tertiary-container": "#009fb4",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2c",
+                        "inverse-primary": "#6d3bd7",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "on-primary": "#3c0091",
+                        "primary-fixed-dim": "#d0bcff",
+                        "primary": "#d0bcff",
+                        "outline": "#958ea0",
+                        "error": "#ffb4ab",
+                        "tertiary": "#2fd9f4",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary-fixed": "#001f25",
+                        "on-primary-container": "#340080",
+                        "surface-container-lowest": "#0e0e10",
+                        "on-secondary": "#690100",
+                        "tertiary-fixed": "#a2eeff",
+                        "surface-container-highest": "#353437",
+                        "on-secondary-container": "#5c0000",
+                        "on-primary-fixed": "#23005c",
+                        "tertiary-fixed-dim": "#2fd9f4",
+                        "on-tertiary-container": "#002f36",
+                        "on-secondary-fixed": "#410000",
+                        "surface-bright": "#39393b",
+                        "secondary": "#ffb4a8",
+                        "secondary-container": "#ff5540",
+                        "primary-fixed": "#e9ddff",
+                        "primary-container": "#a078ff",
+                        "on-surface": "#e5e1e4",
+                        "secondary-fixed-dim": "#ffb4a8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "xl": "32px",
+                        "sm": "12px",
+                        "gutter-mobile": "16px",
+                        "xs": "8px",
+                        "base": "4px",
+                        "margin-mobile": "20px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "headline-md": ["Sora"],
+                        "label-md": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "body-lg": ["Sora"],
+                        "label-sm": ["Sora"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen flex selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- DESKTOP NAVIGATION DRAWER (Hidden on Mobile) -->
+<aside class="hidden md:flex flex-col fixed inset-y-0 left-0 z-[60] p-lg h-full w-72 rounded-r-xl bg-surface-container-high/95 backdrop-blur-lg border-r border-white/15 shadow-2xl">
+<!-- Header -->
+<div class="mb-12 flex items-center gap-4">
+<img alt="User Avatar" class="w-12 h-12 rounded-full shadow-[0_0_15px_rgba(208,188,255,0.3)]" data-alt="A stylized 3D avatar of a professional creator bathed in soft purple neon light against a dark geometric background. The portrait embodies a futuristic, high-end AI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHCVu7GBOq4T4MSwdh7phosdg9ZQAnxhZ5CYFtGhxES612J-IMp74wOEyZMec6yF3akEozOoNY_zy3HHyNL8JCiRx0T7aeomshWjL3Ljmd7S42BH-pSvQuXN7UdGUBNls1MFUpcB2l3CQndBY8v3EZesaAE_wFydbR9_eA3nnEopYgpBMO1gYcHzYib3LQfYPSsmLG-p7ddLTp55YzW54Q-soK7AtHJdZITN2jvwCmXB97BtWseyWYJWJ7y053R4ThzfvRETqNwFk"/>
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-primary">Creator Pro</h2>
+<span class="font-label-sm text-label-sm text-tertiary">AI Automation Active</span>
+</div>
+</div>
+<!-- Navigation List -->
+<nav class="flex flex-col gap-2 flex-1">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-colors duration-300 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="youtube_activity">youtube_activity</span> My Channels
+            </a>
+<!-- ACTIVE ITEM -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-bold shadow-[0_0_20px_rgba(208,188,255,0.15)] transition-transform duration-300 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring" data-weight="fill" style="font-variation-settings: 'FILL' 1;">monitoring</span> Analytics
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-colors duration-300 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span> Brand Kits
+            </a>
+<div class="mt-auto">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-colors duration-300 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span> Support
+                </a>
+</div>
+</nav>
+</aside>
+<!-- TOP APP BAR -->
+<!-- Note: border-b removed per Shell Border Ban. Replaced with shadow -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface/80 backdrop-blur-xl shadow-[0_0_20px_rgba(208,188,255,0.1)]">
+<div class="flex items-center gap-3">
+<img alt="User Profile" class="w-8 h-8 rounded-full md:hidden shadow-[0_0_10px_rgba(255,255,255,0.1)]" data-alt="A minimalist circular profile icon featuring a subtle metallic sheen, positioned against a deeply shadowed backdrop. The lighting is crisp and cool, reflecting a professional digital workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7QDZW6aG6YHk5HHqnTp8wBuOEpuMnPWn5QihETEC2w-dlkorFLWYIMo_U_8qy6bbNOOHPxiIEquKSNKsyAezOV0xwFPVXNlSuMwAmrVfKmh7AiIZNm2lrbtrqDFAdtk-Rub-cYh0UqwHO2FLexeDJNtTprCHUQ2qdwU4FjiRqpaPOYA4s2o97IpLDrVx6_nNIC43X56Chjwg0BW1KA84EV-Hdm_nUAfVXI-TUXI_gBB8zIs-Lc5RNUsHUGnGZhCcRS6Ps87BAqIw"/>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary tracking-tighter">AI Studio</h1>
+</div>
+<button class="text-primary hover:bg-white/10 transition-colors active:scale-95 duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- MOBILE BOTTOM NAV BAR (Hidden on Web) -->
+<!-- Note: border-t removed per Shell Border Ban. Intent fallback: Studio -> Analytics context -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-2 bg-surface/60 backdrop-blur-2xl rounded-t-xl shadow-[0_-8px_32px_rgba(0,0,0,0.4)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span> Home
+        </a>
+<!-- ACTIVE FALLBACK -->
+<a class="flex flex-col items-center justify-center bg-primary-container/20 text-primary rounded-full px-4 py-1 shadow-[0_0_15px_rgba(208,188,255,0.3)] hover:text-primary transition-all active:scale-90 duration-150 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span> Studio
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="movie_edit">movie_edit</span> Editor
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_month">calendar_month</span> Schedule
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="psychology">psychology</span> Niche
+        </a>
+</nav>
+<!-- MAIN CONTENT CANVAS -->
+<main class="flex-1 w-full pt-24 pb-28 md:pb-12 md:pl-80 px-4 md:px-8 xl:px-12 max-w-[1600px] mx-auto">
+<!-- Canvas Header -->
+<div class="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-1">Performance</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time deep synthesis &amp; kinetic insights</p>
+</div>
+<!-- Time Filters -->
+<div class="flex bg-surface-container-high rounded-lg p-1 border border-white/5 shadow-[0_4px_12px_rgba(0,0,0,0.2)]">
+<button class="px-4 py-1.5 rounded-md bg-surface-variant text-on-surface font-label-sm text-label-sm shadow-sm transition-all">7D</button>
+<button class="px-4 py-1.5 rounded-md text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-white/5 transition-all">28D</button>
+<button class="px-4 py-1.5 rounded-md text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-white/5 transition-all">90D</button>
+</div>
+</div>
+<!-- BENTO GRID -->
+<div class="grid grid-cols-1 md:grid-cols-6 xl:grid-cols-12 gap-6">
+<!-- Primary Metric: Revenue (Hero Chart) -->
+<div class="md:col-span-6 xl:col-span-8 bg-surface-container/40 backdrop-blur-xl border border-white/10 rounded-xl p-6 relative overflow-hidden group flex flex-col justify-between min-h-[320px]">
+<!-- AI Glow Effect -->
+<div class="absolute -top-32 -right-32 w-80 h-80 bg-primary/20 rounded-full blur-[80px] pointer-events-none group-hover:bg-primary/30 transition-all duration-700"></div>
+<div class="flex justify-between items-start mb-8 relative z-10">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-[0.1em] mb-2">Est. Revenue synthesis</h3>
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">$14,285.00</div>
+<div class="font-label-sm text-label-sm text-tertiary flex items-center gap-1 mt-2 px-2 py-1 bg-tertiary/10 rounded border border-tertiary/20 w-max">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span> +24.5% velocity
+                        </div>
+</div>
+<div class="bg-primary-container/20 p-3 rounded-xl text-primary border border-primary/20 shadow-[0_0_20px_rgba(208,188,255,0.2)]">
+<span class="material-symbols-outlined text-[28px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+</div>
+<!-- Abstract Kinetic Chart (CSS generated) -->
+<div class="h-32 w-full flex items-end gap-2 sm:gap-3 relative z-10 mt-auto pt-8">
+<div class="flex-1 bg-primary/10 hover:bg-primary/30 transition-colors rounded-t-md h-[30%]"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors rounded-t-md h-[45%]"></div>
+<div class="flex-1 bg-primary/30 hover:bg-primary/50 transition-colors rounded-t-md h-[60%] shadow-[0_0_15px_rgba(208,188,255,0.1)]"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors rounded-t-md h-[50%]"></div>
+<div class="flex-1 bg-primary/40 hover:bg-primary/60 transition-colors rounded-t-md h-[80%] shadow-[0_0_20px_rgba(208,188,255,0.2)]"></div>
+<div class="flex-1 bg-primary/30 hover:bg-primary/50 transition-colors rounded-t-md h-[65%]"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors rounded-t-md h-[40%]"></div>
+<div class="flex-1 bg-tertiary/60 hover:bg-tertiary transition-colors rounded-t-md h-[100%] shadow-[0_0_25px_rgba(47,217,244,0.4)] relative group/bar">
+<!-- Tooltip -->
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm px-3 py-1.5 rounded opacity-0 group-hover/bar:opacity-100 transition-opacity whitespace-nowrap shadow-xl border border-white/10 pointer-events-none">
+                            Peak: $2,450
+                        </div>
+</div>
+</div>
+</div>
+<!-- Secondary Metrics Column -->
+<div class="md:col-span-6 xl:col-span-4 flex flex-col gap-6">
+<!-- Views Card -->
+<div class="flex-1 bg-surface-container/40 backdrop-blur-xl border border-white/10 rounded-xl p-6 relative overflow-hidden">
+<div class="absolute -bottom-16 -left-16 w-48 h-48 bg-tertiary/15 rounded-full blur-[60px] pointer-events-none"></div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total Impressions</h3>
+<span class="material-symbols-outlined text-tertiary bg-tertiary/10 p-2 rounded-lg border border-tertiary/20" data-icon="visibility">visibility</span>
+</div>
+<div class="mt-4">
+<div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface leading-none">2.4M</div>
+<!-- Sparkline Progress -->
+<div class="w-full h-1.5 bg-surface-variant rounded-full mt-4 overflow-visible relative">
+<div class="absolute left-0 top-0 h-full w-[78%] bg-gradient-to-r from-tertiary/30 to-tertiary rounded-full shadow-[0_0_12px_rgba(47,217,244,0.5)]"></div>
+<div class="absolute right-[22%] top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)] border-2 border-background"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-3">+450k organically sourced</p>
+</div>
+</div>
+</div>
+<!-- Watch Time Card -->
+<div class="flex-1 bg-surface-container/40 backdrop-blur-xl border border-white/10 rounded-xl p-6 relative overflow-hidden">
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Watch Time (Hrs)</h3>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg border border-primary/20" data-icon="schedule">schedule</span>
+</div>
+<div class="mt-4">
+<div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface leading-none">8,192</div>
+<div class="flex items-center gap-2 mt-4">
+<span class="flex h-2 w-2 rounded-full bg-error shadow-[0_0_8px_rgba(255,180,171,0.6)]"></span>
+<p class="font-label-sm text-label-sm text-error">-2% vs peak velocity</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Shorts Breakdown -->
+<div class="md:col-span-12 xl:col-span-8 bg-surface-container/40 backdrop-blur-xl border border-white/10 rounded-xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span> Top Synthesized Shorts
+                    </h3>
+<button class="font-label-sm text-label-sm text-primary hover:text-primary-fixed transition-colors">View All Matrix</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Item 1 -->
+<div class="flex items-center gap-4 bg-surface/50 p-3 rounded-xl border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all cursor-pointer group">
+<div class="w-14 h-20 sm:w-16 sm:h-24 rounded-lg bg-surface-variant overflow-hidden relative shrink-0 shadow-md border border-white/10">
+<img alt="Video Thumbnail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity group-hover:scale-105 duration-500" data-alt="Abstract liquid metal forming complex geometric shapes suspended in a void. Illuminated by sharp, contrasting neon pink and cyan studio lights. The composition embodies high-tech AI generation, glossy reflections, and a premium modern digital art aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlG8bn8Dm3M5n6ICYLfR8QqqWRpWrVBuCxuWNSW-mJbg9ONSc5Y0On3xHO1WoqblZDyt6Z6s1SV70RIT11JTR2Qov8PMICtw81rnBUIwb9G5jAbwMBYSNjn2QxprRuiMx6QwOqtxHbbA0fy0pvLhbdgTDNj0ZWm---DF7yirPYL89IEHVelUkcjSOhczzXZ82II0wujfmpSawSUTFYoX6Kd5yGba8Djnfxqw7Knr-vzlb9YVbIalWlqH4DsIVmuspDWyx0gX_CibI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+<span class="absolute bottom-1 right-1 font-label-sm text-[10px] bg-background/80 backdrop-blur px-1.5 py-0.5 rounded text-on-surface">0:58</span>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<h4 class="font-label-md text-label-md text-on-surface truncate group-hover:text-primary transition-colors">Liquid Metal 3D Typography Flow</h4>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="visibility">visibility</span> 1.2M</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]" data-icon="thumb_up">thumb_up</span> 85K</span>
+<span class="flex items-center gap-1.5 text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20"><span class="material-symbols-outlined text-[14px]" data-icon="auto_awesome">auto_awesome</span> 98% Retained</span>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 bg-surface/50 p-3 rounded-xl border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all cursor-pointer group">
+<div class="w-14 h-20 sm:w-16 sm:h-24 rounded-lg bg-surface-variant overflow-hidden relative shrink-0 shadow-md border border-white/10">
+<img alt="Video Thumbnail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity group-hover:scale-105 duration-500" data-alt="A sleek, futuristic server room bathed in intensely saturated neon blue and purple light. Glowing data streams run along the dark, metallic surfaces. The atmosphere is highly technical, precise, and visually represents vast computational power in a dark-mode environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI0WmNMFywWqL3rRsQ_Ela12CzTn19hzKVbStiPGxBRmHC-Aoo0Lf29H1ybMB5A7XHADYEWCbprlTzzT0ZEU2Es3wSibGCthW9qo_JhQGBIQFP8rCjR1kBfmj9hf52jNwH-y-XUmvQaSt-XwihPxjuhHcdIFdXhvzCsXJqjYMyzQA9hcvjiHLJNcoiYpctaNdCENWklZAUznVtbe9V_92dE84ChvL-8NEWNmFYv3mKx--dkYaYHO7vZbj3I92VcCQ9cu1HGMFFBaM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+<span class="absolute bottom-1 right-1 font-label-sm text-[10px] bg-background/80 backdrop-blur px-1.5 py-0.5 rounded text-on-surface">1:15</span>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<h4 class="font-label-md text-label-md text-on-surface truncate group-hover:text-primary transition-colors">Server Farm Kinetic Data Viz</h4>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="visibility">visibility</span> 890K</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]" data-icon="thumb_up">thumb_up</span> 62K</span>
+<span class="flex items-center gap-1.5 text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20"><span class="material-symbols-outlined text-[14px]" data-icon="auto_awesome">auto_awesome</span> 92% Retained</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Demographics / Traffic Mix -->
+<div class="md:col-span-12 xl:col-span-4 flex flex-col md:flex-row xl:flex-col gap-6">
+<!-- Donut Chart -->
+<div class="flex-1 bg-surface-container/40 backdrop-blur-xl border border-white/10 rounded-xl p-6 flex flex-col">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-6">Core Demographics</h3>
+<div class="flex flex-col sm:flex-row xl:flex-col items-center justify-center gap-8 flex-1">
+<!-- CSS Conic Gradient Donut -->
+<div class="relative w-36 h-36 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,0,0,0.5)]" style="background: conic-gradient(var(--tw-colors-primary) 0% 55%, var(--tw-colors-tertiary) 55% 80%, var(--tw-colors-outline-variant) 80% 100%);">
+<div class="absolute inset-3 bg-surface-container/90 backdrop-blur-md rounded-full flex flex-col items-center justify-center z-10 shadow-inner border border-white/5">
+<span class="font-headline-md text-headline-md text-on-surface">55%</span>
+<span class="font-label-sm text-label-sm text-tertiary mt-1">18-24 YRS</span>
+</div>
+</div>
+<!-- Legend -->
+<div class="w-full sm:w-auto xl:w-full flex flex-col gap-3 font-label-sm text-label-sm">
+<div class="flex items-center justify-between gap-6 p-2 rounded-lg bg-white/5 border border-white/5">
+<div class="flex items-center gap-3"><div class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(208,188,255,0.8)]"></div> Male</div>
+<span class="text-on-surface font-bold">55%</span>
+</div>
+<div class="flex items-center justify-between gap-6 p-2 rounded-lg bg-white/5 border border-white/5">
+<div class="flex items-center gap-3"><div class="w-2.5 h-2.5 rounded-full bg-tertiary shadow-[0_0_8px_rgba(47,217,244,0.8)]"></div> Female</div>
+<span class="text-on-surface font-bold">25%</span>
+</div>
+<div class="flex items-center justify-between gap-6 p-2 rounded-lg bg-white/5 border border-white/5">
+<div class="flex items-center gap-3"><div class="w-2.5 h-2.5 rounded-full bg-outline-variant"></div> Unspecified</div>
+<span class="text-on-surface font-bold">20%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> <!-- End Bento Grid -->
+</main>
+</body></html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Video Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#690005",
+                        "tertiary-container": "#009fb4",
+                        "on-primary": "#3c0091",
+                        "on-tertiary": "#00363e",
+                        "tertiary-fixed-dim": "#2fd9f4",
+                        "on-secondary-fixed": "#410000",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "on-surface-variant": "#cbc3d7",
+                        "surface": "#131315",
+                        "inverse-surface": "#e5e1e4",
+                        "on-secondary-container": "#5c0000",
+                        "surface-container-high": "#2a2a2c",
+                        "outline-variant": "#494454",
+                        "surface-container-low": "#1c1b1d",
+                        "background": "#131315",
+                        "on-primary-fixed-variant": "#5516be",
+                        "inverse-on-surface": "#313032",
+                        "surface-tint": "#d0bcff",
+                        "secondary-container": "#ff5540",
+                        "secondary-fixed": "#ffdad4",
+                        "surface-container": "#201f22",
+                        "surface-variant": "#353437",
+                        "surface-bright": "#39393b",
+                        "primary": "#d0bcff",
+                        "on-surface": "#e5e1e4",
+                        "primary-fixed": "#e9ddff",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#a078ff",
+                        "on-tertiary-container": "#002f36",
+                        "on-secondary": "#690100",
+                        "surface-container-highest": "#353437",
+                        "surface-dim": "#131315",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0e0e10",
+                        "on-background": "#e5e1e4",
+                        "primary-fixed-dim": "#d0bcff",
+                        "tertiary-fixed": "#a2eeff",
+                        "secondary": "#ffb4a8",
+                        "on-primary-fixed": "#23005c",
+                        "outline": "#958ea0",
+                        "on-secondary-fixed-variant": "#930100",
+                        "on-tertiary-fixed": "#001f25",
+                        "on-primary-container": "#340080",
+                        "inverse-primary": "#6d3bd7",
+                        "tertiary": "#2fd9f4",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "xs": "8px",
+                        "base": "4px",
+                        "md": "16px",
+                        "gutter-mobile": "16px",
+                        "sm": "12px",
+                        "lg": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Sora"],
+                        "label-md": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "label-sm": ["Sora"],
+                        "body-lg": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "headline-md": ["Sora"],
+                        "body-md": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Sora', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col md:flex-row overflow-hidden pb-20 md:pb-0">
+<!-- TopAppBar (Web & Mobile) - Modifying intent since this is an editor, not top-level dest -->
+<header class="fixed top-0 w-full bg-surface/80 backdrop-blur-xl border-b border-white/15 shadow-[0_0_20px_rgba(208,188,255,0.1)] flex justify-between items-center px-margin-mobile h-16 z-50">
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md text-primary">Editor</h1>
+</div>
+<button class="bg-gradient-to-r from-primary-container to-inverse-primary text-white font-label-md text-label-md px-md py-xs rounded-full hover:opacity-90 active:scale-95 transition-all shadow-[0_0_15px_rgba(160,120,255,0.4)]">
+            Next
+        </button>
+</header>
+<!-- SideNav (Desktop) - Suppressed because this is an editor screen -->
+<main class="flex-1 flex flex-col pt-16 h-screen relative">
+<!-- Video Preview Canvas -->
+<div class="flex-1 relative flex items-center justify-center bg-surface-container-lowest overflow-hidden">
+<!-- Background Blur Layer for Video -->
+<div class="absolute inset-0 bg-cover bg-center blur-2xl opacity-30" data-alt="Abstract neon digital background with deep purples and electric blues. Blurred and out of focus, creating a sleek, high-tech atmospheric backdrop for a video editing interface. Soft glowing lights emulate artificial intelligence processing nodes. High contrast aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCDjUCAqBKcGLMHdVOFGWtgqomWHZjoz73yaPbgwOMzKbPvTMjQOi3JgLimG6q40405PM7DzAEjA4UQqZh3fvEYMkDD4td9ffO9HzLxw9XMiCHCqAOiCL-RH0JWV06U5PT0m_1WDeItdxh3a2oPEV7tBW0TAfZzB1f-NIyKvE0pd2DTKq4FZcqR5TTbZiGlxNc4SZS6pG9uoaFXmgjjhkR1PUyyYCujc3Sh_UGyamw6ltjlIm54RQoRI5Zc287wFkLeIoAtBkAhK0');"></div>
+<!-- Video Player (9:16 Aspect Ratio constraints) -->
+<div class="relative w-full max-w-[400px] aspect-[9/16] bg-surface-container shadow-2xl rounded-xl overflow-hidden mx-margin-mobile border border-white/10 z-10 flex flex-col">
+<img alt="Video Preview" class="w-full h-full object-cover" data-alt="A vertical video frame showing a high-tech circuit board or abstract digital data visualization. Vibrant electric cyan and purple lines pulse against a deep black background. The scene feels energetic, futuristic, and precise, perfectly suited for an AI short-form video creator. Cinematic lighting enhances the neon glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIm2xlFm-PlXa7zoKeAt3LNymukVc1ciPh6mNQGc5zUlNFbk7CFSuhmg7Wj1d9EQimH1WrBdReHsdyaLyHmtk7bnEeY3s5BQtUwMrcp7JxdU9wm9cz7TExCFbp0qBVdG9MxI-_TBeKZAL90KZegPoFaRJ0sCryDpDHP-yir-LfNmVBIUBBTfpFJaJzpvxfNpVvOmnrkMPYGOvXq7hBN8NehA3k5tf2jxUH5TyJR1hELTTo5HMiDmI10lgSferi9juXOtFjgwYaiMk"/>
+<!-- On-Screen UI Overlays -->
+<div class="absolute bottom-lg left-0 w-full px-md flex flex-col gap-xs">
+<!-- Captions Overlay -->
+<div class="bg-surface/60 backdrop-blur-md rounded-lg p-xs text-center border border-white/10 mx-auto w-11/12 shadow-[0_0_15px_rgba(47,217,244,0.2)]">
+<p class="font-headline-md text-headline-md-mobile text-white uppercase tracking-wider shadow-sm">AI Video Gen</p>
+</div>
+</div>
+<!-- Play/Pause Control -->
+<div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/20">
+<button class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-full p-sm shadow-[0_0_20px_rgba(208,188,255,0.3)] text-primary">
+<span class="material-symbols-outlined text-[48px]" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Floating Quick Action Chips (Right side of video on desktop, below on mobile) -->
+<div class="absolute right-margin-mobile top-1/2 -translate-y-1/2 flex flex-col gap-sm hidden md:flex z-20">
+<button class="flex items-center justify-center w-12 h-12 bg-surface-container-high/90 backdrop-blur-xl border border-white/10 rounded-full text-primary hover:bg-white/10 hover:text-tertiary-fixed-dim transition-all shadow-lg group relative">
+<span class="material-symbols-outlined" data-icon="magic_button">magic_button</span>
+<span class="absolute right-full mr-xs bg-surface-container-highest px-sm py-1 rounded-md font-label-sm text-label-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity border border-white/5">Re-gen Script</span>
+</button>
+<button class="flex items-center justify-center w-12 h-12 bg-surface-container-high/90 backdrop-blur-xl border border-white/10 rounded-full text-primary hover:bg-white/10 hover:text-tertiary-fixed-dim transition-all shadow-lg group relative">
+<span class="material-symbols-outlined" data-icon="imagesmode">imagesmode</span>
+<span class="absolute right-full mr-xs bg-surface-container-highest px-sm py-1 rounded-md font-label-sm text-label-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity border border-white/5">Swap Visuals</span>
+</button>
+<button class="flex items-center justify-center w-12 h-12 bg-surface-container-high/90 backdrop-blur-xl border border-white/10 rounded-full text-primary hover:bg-white/10 hover:text-tertiary-fixed-dim transition-all shadow-lg group relative">
+<span class="material-symbols-outlined" data-icon="record_voice_over">record_voice_over</span>
+<span class="absolute right-full mr-xs bg-surface-container-highest px-sm py-1 rounded-md font-label-sm text-label-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity border border-white/5">AI Voice</span>
+</button>
+</div>
+</div>
+<!-- Editor Controls & Timeline Area -->
+<div class="w-full bg-surface-container-high/95 backdrop-blur-2xl border-t border-white/10 rounded-t-xl z-30 flex flex-col max-h-[397px] shadow-[0_-8px_32px_rgba(0,0,0,0.4)] relative">
+<!-- Quick Actions Mobile (Only visible md:hidden) -->
+<div class="flex md:hidden gap-sm px-margin-mobile py-sm overflow-x-auto no-scrollbar border-b border-white/5">
+<button class="flex items-center gap-xs bg-surface-variant border border-white/10 rounded-full px-sm py-1.5 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="magic_button">magic_button</span>
+                    Re-gen Script
+                </button>
+<button class="flex items-center gap-xs bg-surface-variant border border-white/10 rounded-full px-sm py-1.5 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="imagesmode">imagesmode</span>
+                    Swap Visuals
+                </button>
+<button class="flex items-center gap-xs bg-surface-variant border border-white/10 rounded-full px-sm py-1.5 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="record_voice_over">record_voice_over</span>
+                    Add Voice
+                </button>
+</div>
+<!-- Timeline Playhead & Scrubber -->
+<div class="px-margin-mobile py-sm flex items-center gap-sm text-on-surface-variant font-label-sm text-label-sm border-b border-white/5">
+<span>00:12</span>
+<div class="flex-1 h-1 bg-surface-container-lowest rounded-full relative cursor-pointer group">
+<div class="absolute left-0 top-0 h-full w-1/3 bg-tertiary-fixed-dim rounded-full shadow-[0_0_10px_rgba(47,217,244,0.5)]"></div>
+<!-- Playhead -->
+<div class="absolute left-1/3 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-lg border-2 border-tertiary-fixed-dim scale-0 group-hover:scale-100 transition-transform"></div>
+</div>
+<span>00:60</span>
+</div>
+<!-- Timeline Tracks -->
+<div class="flex-1 overflow-y-auto px-margin-mobile py-md flex flex-col gap-sm">
+<!-- Track: Video -->
+<div class="flex gap-sm items-center">
+<div class="w-8 flex justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="movie">movie</span>
+</div>
+<div class="flex-1 h-12 bg-surface-container rounded-lg border border-white/5 flex p-1 gap-1 relative overflow-hidden">
+<div class="w-1/4 h-full bg-surface-variant rounded-md border border-white/10 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity">
+<span class="text-[10px] text-on-surface-variant font-label-sm truncate px-1">Intro.mp4</span>
+</div>
+<div class="w-1/2 h-full bg-primary-container/20 border border-primary/30 rounded-md flex items-center justify-center opacity-90 shadow-[inset_0_0_10px_rgba(208,188,255,0.1)]">
+<span class="text-[10px] text-primary font-label-sm truncate px-1">AI_Gen_Scene_2</span>
+</div>
+<div class="w-1/4 h-full bg-surface-variant rounded-md border border-white/10 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity">
+<span class="text-[10px] text-on-surface-variant font-label-sm truncate px-1">Outro.mp4</span>
+</div>
+</div>
+</div>
+<!-- Track: Captions -->
+<div class="flex gap-sm items-center">
+<div class="w-8 flex justify-center text-tertiary-fixed-dim shadow-[0_0_10px_rgba(47,217,244,0.2)] rounded-full p-1 bg-tertiary-container/10">
+<span class="material-symbols-outlined text-[18px]" data-icon="subtitles">subtitles</span>
+</div>
+<div class="flex-1 h-8 bg-surface-container rounded-lg border border-white/5 flex p-1 gap-1 relative overflow-hidden">
+<div class="w-1/3 h-full bg-tertiary-container/30 border border-tertiary-fixed-dim/40 rounded-sm flex items-center px-2">
+<span class="text-[10px] text-tertiary-fixed-dim font-label-sm truncate">Welcome to the future...</span>
+</div>
+<div class="w-1/3 h-full ml-auto bg-tertiary-container/30 border border-tertiary-fixed-dim/40 rounded-sm flex items-center px-2">
+<span class="text-[10px] text-tertiary-fixed-dim font-label-sm truncate">Subscribe now!</span>
+</div>
+</div>
+</div>
+<!-- Track: Audio -->
+<div class="flex gap-sm items-center">
+<div class="w-8 flex justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="audio_file">audio_file</span>
+</div>
+<div class="flex-1 h-8 bg-surface-container rounded-lg border border-white/5 flex p-1 gap-1 relative overflow-hidden">
+<!-- Simulated Waveform -->
+<div class="w-full h-full bg-secondary-container/20 border border-secondary/30 rounded-sm flex items-center justify-center gap-[2px] px-2 overflow-hidden">
+<div class="h-1/2 w-1 bg-secondary/50 rounded-full"></div>
+<div class="h-3/4 w-1 bg-secondary/50 rounded-full"></div>
+<div class="h-full w-1 bg-secondary/80 rounded-full"></div>
+<div class="h-2/3 w-1 bg-secondary/50 rounded-full"></div>
+<div class="h-1/3 w-1 bg-secondary/50 rounded-full"></div>
+<div class="h-1/2 w-1 bg-secondary/50 rounded-full"></div>
+<div class="h-full w-1 bg-secondary/80 rounded-full"></div>
+<div class="h-3/4 w-1 bg-secondary/50 rounded-full"></div>
+<div class="h-1/4 w-1 bg-secondary/50 rounded-full"></div>
+<div class="h-1/2 w-1 bg-secondary/50 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) - Suppressed because this is an editor/task screen, focusing on Canvas -->
+</body></html>

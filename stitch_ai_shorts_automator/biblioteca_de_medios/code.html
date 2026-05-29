@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Media Library - AI Studio</title>
+<!-- Google Fonts: Sora -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#131315",
+                        "surface-container": "#201f22",
+                        "on-surface-variant": "#cbc3d7",
+                        "surface-variant": "#353437",
+                        "inverse-on-surface": "#313032",
+                        "background": "#131315",
+                        "secondary-fixed": "#ffdad4",
+                        "surface": "#131315",
+                        "on-primary-fixed-variant": "#5516be",
+                        "on-tertiary": "#00363e",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e5e1e4",
+                        "on-secondary-fixed-variant": "#930100",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e5e1e4",
+                        "surface-container-low": "#1c1b1d",
+                        "outline-variant": "#494454",
+                        "tertiary-container": "#009fb4",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2c",
+                        "inverse-primary": "#6d3bd7",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "on-primary": "#3c0091",
+                        "primary-fixed-dim": "#d0bcff",
+                        "primary": "#d0bcff",
+                        "outline": "#958ea0",
+                        "error": "#ffb4ab",
+                        "tertiary": "#2fd9f4",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary-fixed": "#001f25",
+                        "on-primary-container": "#340080",
+                        "surface-container-lowest": "#0e0e10",
+                        "on-secondary": "#690100",
+                        "tertiary-fixed": "#a2eeff",
+                        "surface-container-highest": "#353437",
+                        "on-secondary-container": "#5c0000",
+                        "on-primary-fixed": "#23005c",
+                        "tertiary-fixed-dim": "#2fd9f4",
+                        "on-tertiary-container": "#002f36",
+                        "on-secondary-fixed": "#410000",
+                        "surface-bright": "#39393b",
+                        "secondary": "#ffb4a8",
+                        "secondary-container": "#ff5540",
+                        "primary-fixed": "#e9ddff",
+                        "primary-container": "#a078ff",
+                        "on-surface": "#e5e1e4",
+                        "secondary-fixed-dim": "#ffb4a8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "xl": "32px",
+                        "sm": "12px",
+                        "gutter-mobile": "16px",
+                        "xs": "8px",
+                        "base": "4px",
+                        "margin-mobile": "20px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "headline-md": ["Sora"],
+                        "label-md": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "body-lg": ["Sora"],
+                        "label-sm": ["Sora"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Base styles for Kinetic AI Theme */
+        body {
+            background-color: theme('colors.background');
+            background-image: radial-gradient(circle at 50% 0%, theme('colors.surface-container-high') 0%, transparent 70%);
+            background-attachment: fixed;
+        }
+        
+        /* Hide scrollbar for tabs but allow scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- DESKTOP SIDE NAV (NavigationDrawer) -->
+<nav class="hidden md:flex flex-col bg-surface-container-high/95 backdrop-blur-lg h-full w-72 rounded-r-xl border-r border-white/15 shadow-2xl transition-transform duration-300 ease-in-out fixed inset-y-0 left-0 z-[60] p-lg">
+<!-- Header -->
+<div class="flex items-center gap-md mb-xl">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A close-up studio portrait of a young professional in a cyberpunk-inspired setting. The lighting is moody with neon pink and cyan rim lights reflecting off a dark metallic collar. The background is a blurred deep space gradient. The overall aesthetic is futuristic, precise, and highly detailed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvapgDm_9LEy1fNbbvdSMR7PYT14-F5gUAMkmlemtZMgyPoFzNlsGKeMrE0Tw4lDBKTUXjQz15CcUIgzs7KFv2xgAN99utBNKm5VI9dFyCdeFstT6-lAgQx2qw42muv1FFbwMYS5LttA3Fxcc7NHgrlJxy88bypovM9u2ifP-vKelG3SVK-Isf8oIP52VvoxKZLieTwmrZPBYmuFKt32M77aZ5K9bWSBGARlc3gXrBlN8UP16gJ8reDilRutXlZFYDesJpK3ujV8U"/>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Creator Pro</h2>
+<p class="font-label-sm text-label-sm text-tertiary">AI Automation Active</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<ul class="flex flex-col gap-xs flex-1">
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">youtube_activity</span>
+                    My Channels
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                    Analytics
+                </a>
+</li>
+<!-- Active State logically mapped to Brand Kits / Assets for this context -->
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg bg-primary-container text-on-primary-container font-bold transition-colors font-body-md text-body-md shadow-[0_0_15px_rgba(208,188,255,0.2)]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">palette</span>
+                    Brand Kits
+                </a>
+</li>
+</ul>
+<!-- Bottom Link -->
+<div class="mt-auto">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                Support
+            </a>
+</div>
+</nav>
+<!-- MAIN CANVAS -->
+<main class="flex-1 flex flex-col w-full md:pl-72 min-h-screen relative">
+<!-- TOP APP BAR -->
+<header class="bg-surface/80 backdrop-blur-xl font-headline-md text-headline-md-mobile md:text-headline-md text-primary fixed top-0 w-full md:w-[calc(100%-18rem)] border-b border-white/15 shadow-[0_0_20px_rgba(208,188,255,0.1)] flex justify-between items-center px-margin-mobile h-16 z-50">
+<!-- Leading: Avatar (Mobile only, hidden on desktop since it's in sidenav) -->
+<div class="md:hidden w-8 h-8 rounded-full overflow-hidden border border-primary/50">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A close-up studio portrait of a young professional in a cyberpunk-inspired setting. The lighting is moody with neon pink and cyan rim lights reflecting off a dark metallic collar. The background is a blurred deep space gradient. The overall aesthetic is futuristic, precise, and highly detailed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDad4QsPeiVCtoqwKFg5WCInJMH7mbXmmVVqjiLAmXpqTLwwfUAG93liUvizdZMZe25_Cy-R609hx8YWTZ24JSajQu7YAbmRMMmT93TyUNpwfV5-SmlBfpd2U7i9MbnQUc8QTg6h3liZFPxYj9TPnkpSuWHeAl_-rcWE3RL2qHKPDeHEsHYs-VgnnILS_V5SQ9ASX8nf23unbHeaBOQN3NVIKkfiCuZW6aORuVw1nWmlvKilG6zx8vdmU_LnyWjzaPBLAL7CuF8ntI"/>
+</div>
+<!-- Headline / Brand -->
+<h1 class="font-display-lg text-display-lg text-primary tracking-tighter hidden md:block">AI Studio</h1>
+<h1 class="md:hidden tracking-tight">AI Studio</h1>
+<!-- Trailing: Settings Icon -->
+<button class="text-on-surface-variant hover:bg-white/10 transition-colors active:scale-95 duration-200 p-2 rounded-full">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<!-- CONTENT AREA -->
+<div class="flex-1 pt-24 pb-32 md:pb-12 px-margin-mobile md:px-xl max-w-7xl mx-auto w-full flex flex-col gap-lg">
+<!-- Search & Actions -->
+<div class="flex flex-col md:flex-row gap-md items-center justify-between z-40">
+<div class="relative w-full md:w-96 group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-tertiary transition-colors">search</span>
+<input class="w-full bg-surface-container/50 backdrop-blur-xl border border-outline-variant/30 rounded-full py-3 pl-12 pr-4 text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all font-body-md text-body-md shadow-inner" placeholder="Search assets, prompts, or tags..." type="text"/>
+</div>
+<div class="flex gap-sm w-full md:w-auto">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-xs px-md py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 backdrop-blur-md transition-all text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                        Filters
+                    </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-xs px-md py-2 rounded-full bg-gradient-to-r from-primary-container to-inverse-primary hover:opacity-90 transition-opacity text-white font-label-md text-label-md shadow-[0_0_15px_rgba(208,188,255,0.4)]">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+                        New Asset
+                    </button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="w-full overflow-x-auto no-scrollbar border-b border-white/10">
+<div class="flex gap-lg min-w-max px-2">
+<button class="pb-3 border-b-2 border-tertiary text-tertiary font-label-md text-label-md transition-colors relative">
+                        AI Generated
+                        <div class="absolute -bottom-[2px] left-0 w-full h-[2px] bg-tertiary shadow-[0_0_10px_rgba(47,217,244,0.8)]"></div>
+</button>
+<button class="pb-3 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md">
+                        Uploaded Clips
+                    </button>
+<button class="pb-3 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md">
+                        Music
+                    </button>
+<button class="pb-3 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md">
+                        Brand Assets
+                    </button>
+</div>
+</div>
+<!-- Asset Grid (Bento Style) -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-md md:gap-lg auto-rows-[200px]">
+<!-- Video Item (AI) - Spans 2 rows -->
+<div class="col-span-2 row-span-2 rounded-xl border border-white/10 bg-surface-container/30 backdrop-blur-md overflow-hidden relative group cursor-pointer hover:border-tertiary/50 transition-colors">
+<img alt="Abstract liquid video thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="A dynamic, high-contrast abstract digital art piece resembling fluid metallic mercury swirling in a zero-gravity environment. Deep neon purple and cyan colors refract through the liquid forms. The background is a dark, starlit abyss. The lighting is cinematic, highlighting the glossy textures and creating a futuristic, energetic mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuf-9YlQLhELTRljj5CDBkxFCa3GaP9pk2w9mw6jea0BcGvQs1k-IhFnri4wPql1mF8yuMZZQlvs4URd9GJlxKyII9qwcn7hqewomTzvsHqOxDkBuUYheQjwCt4s8RGAd-bw1NE-ghSZFPs9-ixVZMTES8U-6dHx09Kzd9gTlP7r5pDaHM8psVmNXEHB9zXkVBdFXaqBjRFDqVs7OS-DdAVJHobktZXL4252VvBUvO1m_N3KzNo-k1cRBhXfFrv14f8avacygwon0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
+<!-- AI Badge -->
+<div class="absolute top-sm right-sm flex items-center gap-1 bg-surface/80 backdrop-blur-md border border-tertiary/30 text-tertiary px-2 py-1 rounded-full font-label-sm text-label-sm shadow-[0_0_10px_rgba(47,217,244,0.2)]">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                        V2.4
+                    </div>
+<div class="absolute bottom-md left-md right-md">
+<h3 class="font-headline-md text-headline-md text-white truncate drop-shadow-md">Neon Genesis Intro</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant mt-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 00:15
+                        </p>
+</div>
+</div>
+<!-- Standard Video Item -->
+<div class="col-span-1 row-span-1 rounded-xl border border-white/10 bg-surface-container/30 backdrop-blur-md overflow-hidden relative group cursor-pointer hover:bg-white/5 transition-colors">
+<img alt="Cyberpunk city thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300" data-alt="A highly detailed, futuristic cyberpunk cityscape viewed from a high vantage point at night. Rain slicks the metallic rooftops reflecting vivid neon magenta and cyan signs. Flying vehicles leave light trails in the misty air. The mood is gritty yet highly technological, utilizing a high-contrast dark mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Mv_9BPWLyaM6DZ0kVAffqwNTb4liu1F-bRFCwmlRt_cyfIY0HsIvqCL-CgG4LbR_EcnAyPu6sd3Fgu7axMJyjBvpF50CQgSkCWpod06gyQDl5RzVDVVDdMW5y698hf7Nh93EKtSCTqKYCUfvPCePEs5Zso0w6o0b_BNysrM36TGhgM7GNthOYbhrdquT88jngOkOYAq16YcqlmXRg2zmyZnu_GyFkB7thrSBC0WQVBf78UY-65D4VYP-3iEZn4eOg2HLfKs0ex4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-sm left-sm right-sm">
+<h3 class="font-label-md text-label-md text-white truncate">City B-Roll</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">00:08</p>
+</div>
+</div>
+<!-- Audio Item (Waveform concept) -->
+<div class="col-span-1 row-span-1 rounded-xl border border-white/10 bg-surface-container-high/50 backdrop-blur-md overflow-hidden relative group cursor-pointer hover:border-primary/50 transition-colors p-sm flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="bg-primary/20 text-primary p-2 rounded-lg">
+<span class="material-symbols-outlined">music_note</span>
+</div>
+<button class="text-on-surface hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Fake Waveform -->
+<div class="flex items-end gap-[2px] h-12 w-full mt-2 opacity-70 group-hover:opacity-100 transition-opacity">
+<div class="w-full bg-primary rounded-t-sm" style="height: 20%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 50%"></div>
+<div class="w-full bg-tertiary rounded-t-sm shadow-[0_0_8px_rgba(47,217,244,0.6)]" style="height: 80%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 40%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 60%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 30%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 70%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 20%"></div>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-white truncate mt-2">Synthwave Bass</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Audio • 02:45</p>
+</div>
+</div>
+<!-- Graphic/Brand Asset -->
+<div class="col-span-1 row-span-1 rounded-xl border border-white/10 bg-surface-container-low/80 backdrop-blur-md overflow-hidden relative group cursor-pointer hover:bg-white/5 transition-colors flex items-center justify-center p-md">
+<!-- Checkered pattern background for transparency effect -->
+<div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;"></div>
+<div class="z-10 text-center">
+<span class="material-symbols-outlined text-[48px] text-white/80 group-hover:text-white group-hover:scale-110 transition-all drop-shadow-lg">token</span>
+<h3 class="font-label-md text-label-md text-white mt-2">Primary Logo</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">PNG • Transparent</p>
+</div>
+</div>
+<!-- Standard Video Item -->
+<div class="col-span-1 row-span-1 rounded-xl border border-white/10 bg-surface-container/30 backdrop-blur-md overflow-hidden relative group cursor-pointer hover:bg-white/5 transition-colors">
+<img alt="Abstract gradient thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300" data-alt="A smooth, flowing 3D gradient abstract landscape. The colors transition seamlessly between deep indigo, vibrant violet, and soft peach. The lighting is soft and diffuse, creating a calming yet modern high-tech aesthetic. The composition feels like a topographical map of a digital dreamscape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZFhAz4PgMvmkJNhRtWcx1vTorVitmktgOyczI6Poj3_H1UXPHyVU8ZsgD9WiwieUvvD_nBRkXLFXT3ibxvSmQr9DgEnNnsL-OiQX-76wlaylsGfnju8yFlCdijk1ECu79LlmTQPEcX_gGwXT3jTq3M9Lk_VV09rCiibBmBmcpD4HubVKGx092VDRlujaa4voePc7acORwHuN8tp7BdUKp_r2a7bLI6V_55Wh8BtrWGaIzixhSfYi_ggRnBC8FBaGQ3n8ebQo72XE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-sm left-sm right-sm">
+<h3 class="font-label-md text-label-md text-white truncate">Background Loop</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">00:30</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- MOBILE BOTTOM NAV -->
+<!-- Active State: "Studio" as determined by context -->
+<nav class="md:hidden bg-surface/60 backdrop-blur-2xl font-label-sm text-label-sm fixed bottom-0 w-full rounded-t-xl border-t border-white/10 shadow-[0_-8px_32px_rgba(0,0,0,0.4)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-2">
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 w-16 gap-1">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Home</span>
+</button>
+<!-- ACTIVE: Studio -->
+<button class="flex flex-col items-center justify-center bg-primary-container/20 text-primary rounded-full px-4 py-1 shadow-[0_0_15px_rgba(208,188,255,0.3)] hover:text-primary transition-all active:scale-90 duration-150 gap-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>Studio</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 w-16 gap-1">
+<span class="material-symbols-outlined">movie_edit</span>
+<span>Editor</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 w-16 gap-1">
+<span class="material-symbols-outlined">calendar_month</span>
+<span>Schedule</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all active:scale-90 duration-150 w-16 gap-1">
+<span class="material-symbols-outlined">psychology</span>
+<span>Niche</span>
+</button>
+</nav>
+</body></html>

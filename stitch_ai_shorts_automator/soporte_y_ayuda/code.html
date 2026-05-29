@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Support &amp; Help Center - AI Studio</title>
+<!-- Google Fonts: Sora -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#131315",
+                    "surface-container": "#201f22",
+                    "on-surface-variant": "#cbc3d7",
+                    "surface-variant": "#353437",
+                    "inverse-on-surface": "#313032",
+                    "background": "#131315",
+                    "secondary-fixed": "#ffdad4",
+                    "surface": "#131315",
+                    "on-primary-fixed-variant": "#5516be",
+                    "on-tertiary": "#00363e",
+                    "on-error": "#690005",
+                    "inverse-surface": "#e5e1e4",
+                    "on-secondary-fixed-variant": "#930100",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e5e1e4",
+                    "surface-container-low": "#1c1b1d",
+                    "outline-variant": "#494454",
+                    "tertiary-container": "#009fb4",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2c",
+                    "inverse-primary": "#6d3bd7",
+                    "on-tertiary-fixed-variant": "#004e5a",
+                    "on-primary": "#3c0091",
+                    "primary-fixed-dim": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "outline": "#958ea0",
+                    "error": "#ffb4ab",
+                    "tertiary": "#2fd9f4",
+                    "surface-tint": "#d0bcff",
+                    "on-tertiary-fixed": "#001f25",
+                    "on-primary-container": "#340080",
+                    "surface-container-lowest": "#0e0e10",
+                    "on-secondary": "#690100",
+                    "tertiary-fixed": "#a2eeff",
+                    "surface-container-highest": "#353437",
+                    "on-secondary-container": "#5c0000",
+                    "on-primary-fixed": "#23005c",
+                    "tertiary-fixed-dim": "#2fd9f4",
+                    "on-tertiary-container": "#002f36",
+                    "on-secondary-fixed": "#410000",
+                    "surface-bright": "#39393b",
+                    "secondary": "#ffb4a8",
+                    "secondary-container": "#ff5540",
+                    "primary-fixed": "#e9ddff",
+                    "primary-container": "#a078ff",
+                    "on-surface": "#e5e1e4",
+                    "secondary-fixed-dim": "#ffb4a8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "xl": "32px",
+                    "sm": "12px",
+                    "gutter-mobile": "16px",
+                    "xs": "8px",
+                    "base": "4px",
+                    "margin-mobile": "20px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "headline-md": ["Sora"],
+                    "label-md": ["Sora"],
+                    "display-lg": ["Sora"],
+                    "headline-lg-mobile": ["Sora"],
+                    "body-lg": ["Sora"],
+                    "label-sm": ["Sora"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-hidden flex h-screen">
+<!-- Ambient Background Glow -->
+<div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+<!-- Navigation Drawer (Desktop Web) -->
+<aside class="hidden md:flex flex-col bg-surface-container-high/95 backdrop-blur-lg border-r border-white/15 shadow-2xl h-full w-72 rounded-r-xl transition-transform duration-300 ease-in-out z-[60] flex-shrink-0">
+<!-- Header -->
+<div class="p-lg flex items-center gap-md border-b border-white/10">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-white/20 bg-surface-variant flex-shrink-0">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A high-contrast, modern profile portrait of a futuristic content creator wearing sleek tech-wear. The lighting is cinematic with subtle neon purple edge lights against a dark backdrop. The aesthetic is clean, professional, and slightly cyberpunk." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2lw7KEWejLNf4-mSA0Jxg7C2HzcjdGi5UdJkNwmka4cXWZmQmVqA2i44wuUcg5nmujvgUTJv-YE6mg4bhZ6gr6la32qOS3ajzOm6jN5A7dAQBlfDeNWcXzxx3dJiDDD8Ff1iLAwkm0usXAwvGzka-Ue-GpVQLrjZ5ppYekGBPEdmZoFSBHpaLkOBRJr2lknMjqBwL64a__1aD76P8JPOHDSUbuZEusYZM8bwgryQxIF9ttO9MPcJ-UlKO6QD6sc583bOEivSHFXo"/>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Creator Pro</h2>
+<p class="font-label-sm text-label-sm text-tertiary">AI Automation Active</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 overflow-y-auto py-md px-sm space-y-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-white/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="youtube_activity">youtube_activity</span>
+<span class="font-label-md text-label-md">My Channels</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-white/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-white/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+<span class="font-label-md text-label-md">Brand Kits</span>
+</a>
+<!-- Active State Navigation -->
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container font-bold rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help" data-weight="fill" style="font-variation-settings: 'FILL' 1;">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col relative z-10 overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full md:w-[calc(100%-18rem)] bg-surface/80 backdrop-blur-xl border-b border-white/15 shadow-[0_0_20px_rgba(208,188,255,0.1)] flex justify-between items-center px-margin-mobile h-16 z-50 transition-colors">
+<!-- Brand / Headline -->
+<div class="font-display-lg text-display-lg text-primary tracking-tighter text-2xl md:text-3xl">
+                AI Studio
+            </div>
+<!-- Trailing Action -->
+<button class="text-primary hover:bg-white/10 transition-colors p-xs rounded-full active:scale-95 duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- Scrollable Canvas -->
+<main class="flex-1 overflow-y-auto pt-24 pb-32 px-margin-mobile">
+<div class="max-w-4xl mx-auto space-y-xl">
+<!-- Hero Search Section -->
+<section class="text-center space-y-lg pt-xl">
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface tracking-tight">
+                        How can we help you?
+                    </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg mx-auto">
+                        Search for quick answers, explore automation guides, or connect with our AI support agent.
+                    </p>
+<div class="relative max-w-2xl mx-auto group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-tertiary transition-colors" data-icon="search">search</span>
+<input class="w-full bg-surface-container/60 backdrop-blur-md border border-white/10 rounded-full py-md pl-12 pr-md font-body-md text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary focus:shadow-[0_0_20px_rgba(47,217,244,0.2)] transition-all" placeholder="Search FAQs, errors, or keywords..." type="text"/>
+<button class="absolute right-sm top-1/2 -translate-y-1/2 bg-surface-variant hover:bg-surface-bright text-on-surface p-xs rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Categorized Topics (Bento Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Card 1 -->
+<a class="bg-surface-container-low/50 backdrop-blur-xl border border-white/10 rounded-xl p-lg hover:bg-surface-container hover:border-primary/30 transition-all group flex flex-col gap-md" href="#">
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface mb-xs group-hover:text-primary transition-colors">Account &amp; Billing</h3>
+<p class="font-body-md text-label-md text-on-surface-variant font-normal">Manage your subscription, team access, and security settings.</p>
+</div>
+</a>
+<!-- Card 2 -->
+<a class="bg-surface-container-low/50 backdrop-blur-xl border border-white/10 rounded-xl p-lg hover:bg-surface-container hover:border-tertiary/30 transition-all group flex flex-col gap-md" href="#">
+<div class="w-12 h-12 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface mb-xs group-hover:text-tertiary transition-colors">Video Generation</h3>
+<p class="font-body-md text-label-md text-on-surface-variant font-normal">Troubleshoot prompt rendering, asset limits, and export quality.</p>
+</div>
+</a>
+<!-- Card 3 -->
+<a class="bg-surface-container-low/50 backdrop-blur-xl border border-white/10 rounded-xl p-lg hover:bg-surface-container hover:border-secondary/30 transition-all group flex flex-col gap-md" href="#">
+<div class="w-12 h-12 rounded-full bg-secondary/10 text-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="publish">publish</span>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface mb-xs group-hover:text-secondary transition-colors">Publishing Automation</h3>
+<p class="font-body-md text-label-md text-on-surface-variant font-normal">Fix scheduling errors, channel linking, and metadata injection.</p>
+</div>
+</a>
+</section>
+<!-- Action Banner: Start Chat -->
+<section class="mt-xl">
+<div class="bg-gradient-to-r from-primary-container/20 to-surface-container-high border border-primary/20 rounded-xl p-lg flex flex-col md:flex-row items-center justify-between gap-lg relative overflow-hidden">
+<!-- Decorative glow inside banner -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/20 rounded-full blur-[80px]"></div>
+<div class="relative z-10 flex-1 text-center md:text-left">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Need Direct Assistance?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Connect with our Kinetic AI agent for instant diagnostics or escalate to a human specialist.</p>
+</div>
+<div class="relative z-10 flex-shrink-0 w-full md:w-auto">
+<button class="w-full md:w-auto bg-primary text-on-primary font-label-md text-label-md py-sm px-xl rounded-full shadow-[0_0_20px_rgba(208,188,255,0.4)] hover:shadow-[0_0_30px_rgba(208,188,255,0.6)] hover:bg-primary-fixed transition-all active:scale-95 flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-lg" data-icon="smart_toy">smart_toy</span>
+                                Start Chat
+                            </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>
